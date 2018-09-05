@@ -13,10 +13,12 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333333;
+    display: flex;
 }
 
-li {
-    float: left;
+
+li:last-child{
+    margin-left: auto;
 }
 
 li a {
@@ -28,5 +30,9 @@ li a {
 }
 
 li a:hover {
-    background-color: #111111;
+    background-color: deepskyblue;
+}
+
+footer { 
+    display: block;
 }
