@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href ="estilos/estilo2.css" rel ="stylesheet" type ="text/css">
+        <link href ="estilos/estiloLogin.css" rel ="stylesheet" type ="text/css">
         <title>Blog-Login</title>
     </head>
     <body>

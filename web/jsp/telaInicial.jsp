@@ -1,25 +1,20 @@
+<%-- 
+    Document   : telaInicial
+    Created on : 14/09/2018, 21:48:04
+    Author     : Leonardo
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Blog</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tela Inicial-Blog</title>
         <link href ="estilos/estilo.css" rel ="stylesheet" type ="text/css">
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="#home teste">Teste</a></li>
-                <li><a href="#sobre">Sobre o blog</a></li>
-                <li><a href="/Blog/Login">Entrar</a></li>
-            </ul>
-        </nav>
-
+        <%@include file="menu.jsp" %>
         <section>
             <article>
                 <h1 class="h1Titulo">Primeiro post do blog</h1>
@@ -101,7 +96,5 @@ and open the template in the editor.
                 </div>
             </article>
         </section>
-
-
     </body>
 </html>
