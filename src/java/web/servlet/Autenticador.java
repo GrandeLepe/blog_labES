@@ -72,7 +72,7 @@ public class Autenticador extends HttpServlet {
         if ( uLogado!= null){ //Login efetuado com sucesso
             req.setAttribute("usuarioLogado", uLogado);
             try {
-                sc.getRequestDispatcher("/index.html").forward(req, resp);  
+                sc.getRequestDispatcher("/jsp/telaInicial.jsp").forward(req, resp);  
             }catch(Exception e){
                 //Tratamento de erro de IO ou de Servlet..
             }                       

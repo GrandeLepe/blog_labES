@@ -5,15 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="api.modelo.Usuario"%>
 <!DOCTYPE html>
+
 <header>
-        <nav>
-            <ul>
-                <li><a href="telaInicial.jsp">Inicio</a></li>
-                <li><a href="sobre.jsp">Sobre o blog</a></li>
-                <li><%
-                    %></li>
-                <li><a href="/Blog/Login">Entrar</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li><a href="/Blog/gerente?param=1">Inicio</a></li>
+            <li><a href="/Blog/gerente?param=2">Sobre o blog</a></li>
+            
+            <li><a href="/Blog/Login">Entrar</a></li>
+        </ul>
+    </nav>
 </header>

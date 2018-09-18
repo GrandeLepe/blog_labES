@@ -23,6 +23,7 @@ ul {
     overflow: hidden;
     background-color: #333333;
     display: flex;
+    flex-wrap: wrap; 
 }
 
 
