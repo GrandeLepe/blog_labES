@@ -12,7 +12,7 @@ import java.util.List;
  * @author fabriciogmc
  */
 public class Usuario extends Id{
-    private String nomeUsuario;
+    private String usuario; //nome de entrada no blog
     private String senha;
     private String nomeCompleto;
     private String email;
@@ -20,12 +20,12 @@ public class Usuario extends Id{
     
     public Usuario(){}
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getSenha() {
