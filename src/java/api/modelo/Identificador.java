@@ -7,7 +7,7 @@ package api.modelo;
 
 /**
  *
- * @author fabriciogmc
+ * @author Leonardo
  */
 public class Identificador {
     private Long id;

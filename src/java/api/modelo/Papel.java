@@ -7,7 +7,7 @@ package api.modelo;
 
 /**
  *
- * @author fabriciogmc
+ * @author Leonardo
  */
 public class Papel extends Id{
     private EnumPapeis descricao;

@@ -7,7 +7,8 @@ package api.modelo;
 
 /**
  *
- * @author fabriciogmc
+ * @author Leonardo
+ * https://www.devmedia.com.br/tipos-enum-no-java/25729
  */
 public enum EnumPapeis {
     ADMINISTRADOR ("Administrador"), 

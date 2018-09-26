@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author fabriciogmc
+ * @author Leonardo
  */
 public class Usuario extends Identificador{
     private Long id;
