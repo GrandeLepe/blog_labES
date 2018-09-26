@@ -7,6 +7,8 @@ package core.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -14,19 +16,22 @@ import java.sql.DriverManager;
  */
 public class Fabrica {
     private static Connection conexao;
-    private static final String caminhoDB = "jdbc:mariadb://127.0.0.1/blog";
-    private static final String usuarioDB = "root";
-    private static final String senhaDB = "root";
+    private static final String CAMINHO_DB = "jdbc:mariadb://127.0.0.1/blog";
+    private static final String USUARIO_DB = "root";
+    private static final String SENHA_DB = "root";
     
     private Fabrica(){};
+    
+    
     
     public static Connection obterConexao() throws ClassNotFoundException{
         if(conexao == null){
             try{
-                Class.forName("org.mariadb.jdbc.Driver");
-                conexao = DriverManager.getConnection(caminhoDB, usuarioDB, senhaDB);
+                 Class.forName("org.mariadb.jdbc.Driver");
+                conexao = DriverManager.getConnection(CAMINHO_DB, USUARIO_DB, SENHA_DB);
             }
             catch(Exception excecao){
+                System.out.println(excecao);
                 System.out.println("Erro de conexão com o banco de dados");
             }
         }

@@ -25,6 +25,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
 
     public UsuarioDAOMariaDB10() throws ClassNotFoundException {
         conexao = Fabrica.obterConexao();
+        
     }
 
     @Override
@@ -48,15 +49,15 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
     }
 
     @Override
-    public Usuario findById(Long id) {
+    public Usuario procurarPorId(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Usuario findByNome(String nomeUsuario) {
+    public Usuario procurarPorNome(String nomeUsuario) {
         Usuario u = null;
         try {
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from blog.usuario where nomeusuario = ?");
+            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from blog.usuario where nome = ?");
             comandoSQLp.setString(1, nomeUsuario);
             ResultSet rs = comandoSQLp.executeQuery();
             System.out.println("Conectado...(metodo findByNome)");
@@ -80,27 +81,27 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
     }
 
     @Override
-    public Usuario findByNomeUsuario(String name) {
+    public Usuario procurarPorNomeUsuario(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Usuario> findAll() {
+    public List<Usuario> procurarTudo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Usuario update(Usuario usuarioAnt, Usuario usuarioAt) {
+    public Usuario atualizar(Usuario usuarioAnt, Usuario usuarioAt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(Usuario usuario) {
+    public boolean excluir(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(Long id) {
+    public boolean excluir(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -9,7 +9,9 @@ import api.dao.UsuarioDAO;
 import api.modelo.EnumPapeis;
 import api.modelo.Papel;
 import api.modelo.Usuario;
+import api.servico.ServicoUsuario;
 import core.dao.UsuarioDAOMariaDB10;
+import core.servico.ServicoUsuarioImpl;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletContext;
@@ -32,14 +34,14 @@ public class Autenticador extends HttpServlet {
         }catch(Exception e){} 
         String nomeUsuario = req.getParameter("nomeUsuario");
         String senha = req.getParameter("senha");
-        
-        UsuarioDAO sUsuario = new UsuarioDAOMariaDB10();
-        Usuario uBD = sUsuario.findByNomeUsuario(nomeUsuario);      
+        ServicoUsuario sUsuario = new ServicoUsuarioImpl();
+        Usuario uBD = sUsuario.findByNome(nomeUsuario); 
+        System.out.println(uBD);
         ServletContext sc = req.getServletContext();
         if (uBD!= null && uBD.getSenha().equals(senha)){
             try{
                 req.setAttribute("usuarioLogado",uBD);
-                sc.getRequestDispatcher("/dynamic/jsp/home.jsp").forward(req, resp); 
+                sc.getRequestDispatcher("/jsp/telaInicial.jsp").forward(req, resp); 
             }catch( Exception e){
                //Tratamento de exceção... 
             }            
@@ -47,7 +49,7 @@ public class Autenticador extends HttpServlet {
         else{
             try {
                 req.setAttribute("falhaAutenticacao", true);
-                sc.getRequestDispatcher("/dynamic/jsp/login.jsp").forward(req, resp);
+                sc.getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
             }catch(Exception e){
                 //Tratamento de erro de IO ou de Servlet..
             }  

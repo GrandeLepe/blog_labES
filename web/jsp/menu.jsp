@@ -15,7 +15,7 @@
             <li><a href="/Blog/gerente?param=2">Sobre o blog</a></li>
             
                 <% if (u != null) {%>
-            <li>Olá! <%= u.getNomeCompleto()%></li>
+            <li><a>Olá! <%= u.getNomeUsuario()%></a></li>
                 <% } else { %>
             <li  class="nomeUsuario"><a>Olá! Visitante</a></li>
                 <% }%>
