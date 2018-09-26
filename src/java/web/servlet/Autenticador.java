@@ -5,9 +5,11 @@
  */
 package web.servlet;
 
+import api.dao.UsuarioDAO;
 import api.modelo.EnumPapeis;
 import api.modelo.Papel;
 import api.modelo.Usuario;
+import core.dao.UsuarioDAOMariaDB10;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletContext;
@@ -21,69 +23,34 @@ import javax.servlet.http.HttpServletResponse;
  * @author Leonardo
  */
 @WebServlet(name = "Autenticador", urlPatterns = {"/Autenticador.action"})
-public class Autenticador extends HttpServlet {
-    private List<Usuario> usuarios;
-    private List<Papel> papeis;
-    
-    public Autenticador(){
-        usuarios = new ArrayList();
-        papeis = new ArrayList();
-        papeis.add(new Papel(EnumPapeis.ADMINISTRADOR));
-        papeis.add(new Papel(EnumPapeis.USUARIO_COMUM));
-        //Criação do primeiro usuário do sistema
-        Usuario u1 = new Usuario();
-        u1.setEmail("grande@lepe.com");
-        u1.setNomeCompleto("Grande Lepe");
-        u1.setSenha("1");
-        u1.setNomeUsuario("1");
-        u1.setPapeis(papeis);        
-        usuarios.add(u1);
-        //Criação do segundo usuário do sistema
-        papeis = new ArrayList();
-        papeis.add(new Papel(EnumPapeis.USUARIO_COMUM));
-        u1 = new Usuario();
-        u1.setEmail("pequena@mimi.com");
-        u1.setNomeCompleto("Pequena Mimi");
-        u1.setSenha("2");
-        u1.setNomeUsuario("2");
-        u1.setPapeis(papeis);
-        usuarios.add(u1);  
-        //hard code para teste
-    }
-    
+public class Autenticador extends HttpServlet {   
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp){
         
         try{
             req.setCharacterEncoding("UTF-8"); 
         }catch(Exception e){} 
-        
         String nomeUsuario = req.getParameter("nomeUsuario");
         String senha = req.getParameter("senha");
+        
+        UsuarioDAO sUsuario = new UsuarioDAOMariaDB10();
+        Usuario uBD = sUsuario.findByNomeUsuario(nomeUsuario);      
         ServletContext sc = req.getServletContext();
-        Usuario uLogado = null;
-        for(Usuario u: usuarios){
-            if ( nomeUsuario.equals(u.getNomeUsuario()) 
-                 && senha.equals(u.getSenha()) ){
-                uLogado = u;
-                break;
-            }
-        }
-        if ( uLogado!= null){ //Login efetuado com sucesso
-            req.setAttribute("usuarioLogado", uLogado);
-            try {
-                sc.getRequestDispatcher("/jsp/telaInicial.jsp").forward(req, resp);  
-            }catch(Exception e){
-                //Tratamento de erro de IO ou de Servlet..
-            }                       
+        if (uBD!= null && uBD.getSenha().equals(senha)){
+            try{
+                req.setAttribute("usuarioLogado",uBD);
+                sc.getRequestDispatcher("/dynamic/jsp/home.jsp").forward(req, resp); 
+            }catch( Exception e){
+               //Tratamento de exceção... 
+            }            
         }
         else{
             try {
                 req.setAttribute("falhaAutenticacao", true);
-                sc.getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
+                sc.getRequestDispatcher("/dynamic/jsp/login.jsp").forward(req, resp);
             }catch(Exception e){
                 //Tratamento de erro de IO ou de Servlet..
             }  
-        }    
-    }
-}
+        }//if-else 
+    }//doPost
+}//Autenticador.java

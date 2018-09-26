@@ -5,21 +5,25 @@
  */
 package core.dao;
 
-import api.dao.usuarioDAO;
 import api.modelo.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import api.dao.UsuarioDAO;
 
 /**
  *
  * @author leonardo
  */
-public class usuarioDAOMariaDB10 implements usuarioDAO {
+public class UsuarioDAOMariaDB10 implements UsuarioDAO {
 
     private Connection conexao;
 
-    public usuarioDAOMariaDB10() throws ClassNotFoundException {
+    public UsuarioDAOMariaDB10() throws ClassNotFoundException {
         conexao = Fabrica.obterConexao();
     }
 
@@ -29,9 +33,9 @@ public class usuarioDAOMariaDB10 implements usuarioDAO {
         try {
             PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUE(?,?,?,?,?)");
             comandoSQL.setString(1, usuario.getId().toString());
-            comandoSQL.setString(2, usuario.getUsuario());
+            comandoSQL.setString(2, usuario.getNome());
             comandoSQL.setString(3, usuario.getSenha());
-            comandoSQL.setString(4, usuario.getNomeCompleto());
+            comandoSQL.setString(4, usuario.getNomeUsuario());
             comandoSQL.setString(5, usuario.getEmail());
 
             retorno = comandoSQL.executeUpdate();
@@ -39,7 +43,6 @@ public class usuarioDAOMariaDB10 implements usuarioDAO {
             return retorno;
         } catch (Exception e) {
 
-            
         }
         return retorno;
     }
@@ -50,12 +53,34 @@ public class usuarioDAOMariaDB10 implements usuarioDAO {
     }
 
     @Override
-    public Usuario findByNomeUsuario(String nomeUsuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Usuario findByNome(String nomeUsuario) {
+        Usuario u = null;
+        try {
+            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from blog.usuario where nomeusuario = ?");
+            comandoSQLp.setString(1, nomeUsuario);
+            ResultSet rs = comandoSQLp.executeQuery();
+            System.out.println("Conectado...(metodo findByNome)");
+            rs.next();
+            u = new Usuario();
+            u.setId(rs.getLong(1));
+            u.setNome(rs.getString(2));
+            u.setSenha(rs.getString(3));
+            u.setNomeUsuario(rs.getString(4));
+            u.setEmail(rs.getString(5));            
+            /* Se utilizar o padrão singleton, não fechar a conexão. */
+            comandoSQLp.close();
+            rs.close();
+            //conexao.close();
+            return u;
+            
+        } catch (SQLException ex) {
+            System.out.print("\nErro de conexão... find by nome usuário");
+        }
+        return u;
     }
 
     @Override
-    public Usuario findByName(String name) {
+    public Usuario findByNomeUsuario(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -11,21 +11,32 @@ import java.util.List;
  *
  * @author fabriciogmc
  */
-public class Usuario extends Id{
-    private String usuario; //nome de entrada no blog
+public class Usuario extends Identificador{
+    private Long id;
+    private String nome;
     private String senha;
-    private String nomeCompleto;
+    private String nomeUsuario;
     private String email;
     private List<Papel> papeis;
     
     public Usuario(){}
-
-    public String getUsuario() {
-        return usuario;
+    public Usuario(Long id, String nome, String senha,
+                   String nomeUsuario, String email,
+                   List<Papel> papeis){
+        super(id);
+        this.setNome(nome);
+        this.setSenha(senha);
+        this.setNomeUsuario(nomeUsuario);
+        this.setEmail(email);
+        this.setPapeis(papeis);               
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getSenha() {
@@ -36,12 +47,20 @@ public class Usuario extends Id{
         this.senha = senha;
     }
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
+    public Long getId() {
+        return id;
     }
 
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
     }
 
     public String getEmail() {
@@ -59,5 +78,7 @@ public class Usuario extends Id{
     public void setPapeis(List<Papel> papeis) {
         this.papeis = papeis;
     }
+    
+    
     
 }
