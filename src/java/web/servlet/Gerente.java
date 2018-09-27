@@ -31,6 +31,8 @@ public class Gerente extends HttpServlet {
                 sc.getRequestDispatcher("/jsp/telaInicial.jsp").forward(req, resp);
             } else if (i.equals("2")) {
                 sc.getRequestDispatcher("/jsp/sobre.jsp").forward(req, resp);
+            } else if (i.equals("3")) {
+                sc.getRequestDispatcher("/jsp/painel.jsp").forward(req, resp);
             }
 
         } catch (Exception e) {

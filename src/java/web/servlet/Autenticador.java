@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,7 +41,8 @@ public class Autenticador extends HttpServlet {
         ServletContext sc = req.getServletContext();
         if (uBD!= null && uBD.getSenha().equals(senha)){
             try{
-                req.setAttribute("usuarioLogado",uBD);
+                HttpSession session = req.getSession();
+                session.setAttribute("usuarioLogado",uBD);
                 sc.getRequestDispatcher("/jsp/telaInicial.jsp").forward(req, resp); 
             }catch( Exception e){
                //Tratamento de exceção... 

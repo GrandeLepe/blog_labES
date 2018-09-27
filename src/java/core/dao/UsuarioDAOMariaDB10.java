@@ -32,12 +32,13 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
     public int insert(Usuario usuario) {
         int retorno = 0;
         try {
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUE(?,?,?,?,?)");
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUE(?,?,?,?,?,?)");
             comandoSQL.setString(1, usuario.getId().toString());
             comandoSQL.setString(2, usuario.getNome());
             comandoSQL.setString(3, usuario.getSenha());
             comandoSQL.setString(4, usuario.getNomeUsuario());
             comandoSQL.setString(5, usuario.getEmail());
+            comandoSQL.setString(6, usuario.getPapel().toString());
 
             retorno = comandoSQL.executeUpdate();
             comandoSQL.close();

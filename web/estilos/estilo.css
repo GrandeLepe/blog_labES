@@ -10,37 +10,10 @@ and open the template in the editor.
 
 @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text');
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700');
-
+@import "estiloMenu.css";
 body{
     font-family: 'Comfortaa', cursive;
     background-color: #00bfff;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333333;
-    display: flex;
-    flex-wrap: wrap; 
-}
-
-
-li:last-child{
-    margin-left: auto;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: deepskyblue;
 }
 
 footer { 

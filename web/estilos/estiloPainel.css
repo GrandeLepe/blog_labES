@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/09/2018, 11:43:20
+    Author     : leonardo
+*/
+@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700');
+@import "estiloMenu.css";
+
+body{
+    font-family: 'Comfortaa', cursive;
+    background-color: #00bfff;
+}
+
+footer { 
+    display: block;
+}
+
+section { 
+    display: block;
+    margin: 10px;
+    
+}
+
+article{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 10px;
+    
+}
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: both;
+    overflow: auto;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    border-color: #00bfff;
+}
+
+input[type=submit] {
+    width: 20%;
+    background-color: #333333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #00bfff;
+}

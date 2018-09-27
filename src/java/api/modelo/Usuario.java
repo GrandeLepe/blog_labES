@@ -17,18 +17,18 @@ public class Usuario extends Identificador{
     private String senha;
     private String nomeUsuario;
     private String email;
-    private List<Papel> papeis;
+    private Integer papel;
     
     public Usuario(){}
     public Usuario(Long id, String nome, String senha,
                    String nomeUsuario, String email,
-                   List<Papel> papeis){
+                   Integer papel){
         super(id);
         this.setNome(nome);
         this.setSenha(senha);
         this.setNomeUsuario(nomeUsuario);
         this.setEmail(email);
-        this.setPapeis(papeis);               
+        this.setPapel(papel);               
     }
 
     public String getNome() {
@@ -71,12 +71,12 @@ public class Usuario extends Identificador{
         this.email = email;
     }
 
-    public List<Papel> getPapeis() {
-        return papeis;
+    public Integer getPapel() {
+        return papel;
     }
 
-    public void setPapeis(List<Papel> papeis) {
-        this.papeis = papeis;
+    public void setPapel(Integer papeis) {
+        this.papel = papeis;
     }
     
     
