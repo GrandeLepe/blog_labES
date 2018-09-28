@@ -19,52 +19,29 @@
         <link href ="estilos/admUsuarioTabela.css" rel ="stylesheet" type ="text/css">
     </head>
     <body>
+        <%@include file="menu.jsp" %>
         <section>
             <article> 
-                <%
-                    ServicoUsuario sUsuario = new ServicoUsuarioImpl();
-                    List<Usuario> uBD = sUsuario.procurarTudo();
-                    for (Usuario usuario : uBD) {
-                        out.print(usuario.getNomeUsuario());
-                        out.print("<br>");
-                    }
-                %>
+                
                 <table>
                     <tr>
                         <th>ID</th>
                         <th>Usuario</th>
                         <th>Nome</th>
+                        <th>Email</th>
                     </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                    </tr>
+                    <%
+                    ServicoUsuario sUsuario = new ServicoUsuarioImpl();
+                    List<Usuario> uBD = sUsuario.procurarTudo();
+                    for (Usuario usuario : uBD) {
+                        out.print("<tr>");
+                        out.print("<td>"+usuario.getId().toString()+"</td>");
+                        out.print("<td>"+usuario.getNome()+"</td>");
+                        out.print("<td>"+usuario.getNomeUsuario()+"</td>");
+                        out.print("<td>"+usuario.getEmail()+"</td>");
+                        out.print("</tr>");
+                    }
+                %>
                 </table>
             </article>
         </section>

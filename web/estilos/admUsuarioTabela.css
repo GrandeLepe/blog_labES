@@ -9,17 +9,22 @@ and open the template in the editor.
 */
 
 table {
-    
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
+    
+    
 }
 
-td, th {
-    border: 1px solid #dddddd;
+th, td {
     text-align: left;
     padding: 20px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
 }
+
+tr:hover {background-color: #ccf3ff;}
