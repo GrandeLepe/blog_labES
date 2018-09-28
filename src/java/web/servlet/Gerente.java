@@ -7,9 +7,7 @@ package web.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.console;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +31,10 @@ public class Gerente extends HttpServlet {
                 sc.getRequestDispatcher("/jsp/sobre.jsp").forward(req, resp);
             } else if (i.equals("3")) {
                 sc.getRequestDispatcher("/jsp/painel.jsp").forward(req, resp);
+            } else if (i.equals("4")) {
+                sc.getRequestDispatcher("/jsp/admUsuario.jsp").forward(req, resp);
+            } else if (i.equals("5")) {
+                sc.getRequestDispatcher("/jsp/admPost.jsp").forward(req, resp);
             }
 
         } catch (Exception e) {

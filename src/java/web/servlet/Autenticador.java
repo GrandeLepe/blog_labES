@@ -5,6 +5,7 @@
  */
 package web.servlet;
 
+import api.controle.ControleSessao;
 import api.dao.UsuarioDAO;
 import api.modelo.EnumPapeis;
 import api.modelo.Papel;
@@ -35,14 +36,16 @@ public class Autenticador extends HttpServlet {
         }catch(Exception e){} 
         String nomeUsuario = req.getParameter("nomeUsuario");
         String senha = req.getParameter("senha");
+        System.out.println(nomeUsuario);
         ServicoUsuario sUsuario = new ServicoUsuarioImpl();
-        Usuario uBD = sUsuario.findByNome(nomeUsuario); 
+        Usuario uBD = sUsuario.procurarPorNome(nomeUsuario); 
         System.out.println(uBD);
         ServletContext sc = req.getServletContext();
         if (uBD!= null && uBD.getSenha().equals(senha)){
             try{
-                HttpSession session = req.getSession();
-                session.setAttribute("usuarioLogado",uBD);
+                //HttpSession sessao = req.getSession();
+                req.setAttribute("usuarioLogado",uBD);
+                ControleSessao.adicionarSessao(uBD.getId().toString());
                 sc.getRequestDispatcher("/jsp/telaInicial.jsp").forward(req, resp); 
             }catch( Exception e){
                //Tratamento de exceção... 

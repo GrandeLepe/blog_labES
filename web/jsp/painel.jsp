@@ -18,7 +18,15 @@
         <%@include file="menu.jsp" %>
         <section>
             <article>
-            <h1>Hello World!</h1>
+                <h1>Painel de controle</h1>
+                <nav>
+        <ul>
+            <li><a href="/Blog/gerente?param=">Usuarios</a></li>
+            <li><a href="/Blog/gerente?param=">Postagens</a></li>    
+            <li><a href="/Blog/Login">Sair </a></li>
+                
+        </ul>
+    </nav>
             </article>
         </section>
     </body>

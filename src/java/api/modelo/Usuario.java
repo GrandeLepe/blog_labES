@@ -75,8 +75,8 @@ public class Usuario extends Identificador{
         return papel;
     }
 
-    public void setPapel(Integer papeis) {
-        this.papel = papeis;
+    public void setPapel(Integer papel) {
+        this.papel = papel;
     }
     
     

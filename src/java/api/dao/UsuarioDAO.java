@@ -13,8 +13,8 @@ import java.util.List;
  * @author leonardo
  */
 public interface UsuarioDAO {
-    public int insert(Usuario usuario);
-    public Usuario procurarPorId(Long id);
+    public int inserir(Usuario usuario);
+    public Usuario procurarPorId(Integer id);
     public Usuario procurarPorNome(String nomeUsuario);
     public Usuario procurarPorNomeUsuario(String name);
     public List<Usuario> procurarTudo();

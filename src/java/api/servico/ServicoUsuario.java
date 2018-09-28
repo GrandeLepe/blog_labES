@@ -6,13 +6,14 @@
 package api.servico;
 
 import api.modelo.Usuario;
+import java.util.List;
 
 /**
  *
  * @author leonardo
  */
 public interface ServicoUsuario {
-    public Usuario insert(Usuario usuario);
-    public Usuario findByNome(String nome);
-    
+    public Usuario inserir(Usuario usuario);
+    public Usuario procurarPorNome(String nome);
+    public List<Usuario> procurarTudo();  
 }
