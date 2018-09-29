@@ -20,6 +20,6 @@ public interface UsuarioDAO {
     public List<Usuario> procurarTudo();
     public Usuario atualizar(Usuario usuarioAnt, Usuario usuarioAt);
     public boolean excluir(Usuario usuario);
-    public boolean excluir(Long id); 
+    public boolean excluir(Integer id); 
     
 }

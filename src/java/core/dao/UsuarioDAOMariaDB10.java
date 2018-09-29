@@ -11,8 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import api.dao.UsuarioDAO;
 import java.util.ArrayList;
 
@@ -76,7 +74,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
             System.out.print("\nErro de conexão... procurar por id");
             return u;
         }
-        
+
     }
 
     @Override
@@ -115,23 +113,22 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
 
     @Override
     public List<Usuario> procurarTudo() {
+
         List<Usuario> usuarios = new ArrayList<>();
-        
         try {
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select count(*) from blog.usuario");
+            //PreparedStatement comandoSQLp = conexao.prepareStatement("select count(*) from blog.usuario");
+            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT id FROM blog.usuario");
             ResultSet rs = comandoSQLp.executeQuery();
-            rs.next();
-            System.out.println(rs.getInt(1));
-            for (int i = 1; i <= rs.getInt(1); i++) {
-                usuarios.add(procurarPorId(i));
+
+            while (rs.next()) {
+                usuarios.add(procurarPorId(rs.getInt(1)));
+                System.out.println(rs.getInt(1));
             }
-            
             return usuarios;
+
         } catch (Exception e) {
-            System.out.println("Erro não foi possivel procurar tudo...");
-            System.out.println(e);
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -145,8 +142,18 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
     }
 
     @Override
-    public boolean excluir(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean excluir(Integer id) {
+        try {
+            PreparedStatement comandoSQLp = conexao.prepareStatement("delete from blog.usuario where id = ?");
+            comandoSQLp.setString(1, id.toString());
+            ResultSet rs = comandoSQLp.executeQuery();
+            System.out.println(rs.getBoolean(0));
+            return rs.getBoolean(0);
+        } catch (Exception e) {
+            System.out.println("Erro para excluir por id... usuarioDAOMariaDB10");
+            System.out.println(e);
+        }
+        return false;
     }
 
 }

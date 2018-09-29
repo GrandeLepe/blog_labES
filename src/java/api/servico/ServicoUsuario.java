@@ -16,4 +16,5 @@ public interface ServicoUsuario {
     public Usuario inserir(Usuario usuario);
     public Usuario procurarPorNome(String nome);
     public List<Usuario> procurarTudo();  
+    public boolean excluir(Integer id);
 }

@@ -47,4 +47,18 @@ public class ServicoUsuarioImpl implements ServicoUsuario {
         return null;
     }
 
+    @Override
+    public boolean excluir(Integer id) {
+
+        try {
+            UsuarioDAO uDao = new UsuarioDAOMariaDB10();
+            boolean retorno = uDao.excluir(id);
+            return retorno;
+        } catch (Exception e) {
+            System.out.println("Erro para excluir por id...ServiçoUsuarioImpl");
+            System.out.println(e);
+            return false;
+        }
+    }
+
 }

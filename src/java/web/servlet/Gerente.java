@@ -38,6 +38,8 @@ public class Gerente extends HttpServlet {
             }
 
         } catch (Exception e) {
+            System.out.println("Servlet gerente");
+            System.out.println(e);
         }
     }
 
