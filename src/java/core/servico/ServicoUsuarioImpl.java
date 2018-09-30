@@ -20,12 +20,18 @@ import java.util.logging.Logger;
 public class ServicoUsuarioImpl implements ServicoUsuario {
 
     @Override
-    public Usuario inserir(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void inserir(Usuario usuario) {
+        UsuarioDAO uDao;
+        try {
+            uDao = new UsuarioDAOMariaDB10();
+            uDao.inserir(usuario);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServicoUsuarioImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
-    public Usuario procurarPorNome(String nome){
+    public Usuario procurarPorNome(String nome) {
         try {
             UsuarioDAO uDao = new UsuarioDAOMariaDB10();
             Usuario u = uDao.procurarPorNome(nome);

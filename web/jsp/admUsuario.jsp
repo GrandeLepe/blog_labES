@@ -14,17 +14,47 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Adm Usuarios-Blog</title>
+        <title>Adm Usuários-Blog</title>
         <link href ="estilos/estiloAdmUsuario.css" rel ="stylesheet" type ="text/css">
     </head>
     <body>
         <%@include file="menu.jsp" %>
         <section>
             <article> 
-                <h1>Gerenciamento de usuarios</h1>
+                <h2>Adicionar usuário</h2>
+                <hr>
+                <form class="baseForm" action="admUsusarioAdicionar" method="get">
+                    <label class="formLabel">
+                        Nome de Usuário(Apelido):
+                        <input name="nome" type="text" required class="formInput formTextInput">
+                    </label>
+                    <label class="formLabel">
+                        Senha:
+                        <input name="senha" type="password" required class="formInput formTextInput">
+                    </label>
+                    <label class="formLabel">
+                        Nome completo:
+                        <input name="nomeUsuario" type="text" required class="formInput formTextInput">
+                    </label>
+                    <label class="formLabel">
+                        Email de contato:
+                        <input name="email" type="email" required class="formInput formTextInput">
+                    </label>
+                    <label class="formLabel">
+                        Tipo de usuário:<br>
+                        <input type="radio" name="papel" value="1" checked> Administrador<br>
+                        <input type="radio" name="papel" value="0"> Usuário comum<br>
+                    </label>
+
+                    <input type="submit" value="Adicionar" class="submitButton">                
+                </form>
+            </article>
+
+
+            <article>
+                <h2 >Usuários cadastrados</h2>
                 <hr>
                 <table>
-                    <h2 >Usuarios cadastrados</h2>
                     <tr>
                         <th>ID</th>
                         <th>Usuario</th>
@@ -49,6 +79,7 @@
                         }
                     %>
                 </table>
+                <hr>
             </article>
         </section>
     </body>

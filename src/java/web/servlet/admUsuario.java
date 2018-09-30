@@ -27,18 +27,18 @@ public class admUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        ServletContext sc = req.getServletContext();
+        
         Integer idExcluir = Integer.parseInt(req.getParameter("paramExcluir"));
         //Integer idEditar = Integer.parseInt(req.getParameter("paramEditar"));
-        
+
         try {
             if (idExcluir != 0) {
                 ServicoUsuario sUsuario = new ServicoUsuarioImpl();
                 boolean uBD = sUsuario.excluir(idExcluir);
-                sc.getRequestDispatcher("/Blog/gerente?param=4").forward(req, res);
+                res.sendRedirect("/Blog/gerente?param=4");
             }
         } catch (Exception e) {
-            
+
         }
 
     }

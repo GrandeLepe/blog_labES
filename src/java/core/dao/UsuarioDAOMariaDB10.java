@@ -31,18 +31,27 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
     public int inserir(Usuario usuario) {
         int retorno = 0;
         try {
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUE(?,?,?,?,?,?)");
-            comandoSQL.setString(1, usuario.getId().toString());
-            comandoSQL.setString(2, usuario.getNome());
-            comandoSQL.setString(3, usuario.getSenha());
-            comandoSQL.setString(4, usuario.getNomeUsuario());
-            comandoSQL.setString(5, usuario.getEmail());
-            comandoSQL.setString(6, usuario.getPapel().toString());
-
+            //PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUE(?,?,?,?,?,?)");
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO blog.usuario (nome,senha,nomeUsuario,email,papel) VALUES (?,?,?,?,?)");
+            System.out.println(usuario);
+            //comandoSQL.setString(1, usuario.getId().toString());
+            comandoSQL.setString(1, usuario.getNome());
+            comandoSQL.setString(2, usuario.getSenha());
+            comandoSQL.setString(3, usuario.getNomeUsuario());
+            comandoSQL.setString(4, usuario.getEmail());
+            comandoSQL.setString(5, usuario.getPapel().toString());
+            
             retorno = comandoSQL.executeUpdate();
             comandoSQL.close();
+            if(retorno != 1 ){
+                System.out.println("Erro ao adicionar usuario");
+            }
+            else if(retorno == 1){
+                System.out.println("Adicionado com sucesso!");
+            }
             return retorno;
         } catch (Exception e) {
+            System.out.println(e);
 
         }
         return retorno;
