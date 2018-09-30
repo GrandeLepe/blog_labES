@@ -5,12 +5,12 @@
  */
 package web.servlet;
 
-import api.modelo.Usuario;
+import api.servico.ServicoPostagem;
 import api.servico.ServicoUsuario;
+import core.servico.ServicoPostagemImpl;
 import core.servico.ServicoUsuarioImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,26 +21,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author leonardo
  */
-@WebServlet(name = "admUsuario", urlPatterns = {"/admUsuario"})
-public class admUsuario extends HttpServlet {
+@WebServlet(name = "AdmPost", urlPatterns = {"/AdmPost"})
+public class AdmPost extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        
         Integer idExcluir = Integer.parseInt(req.getParameter("paramExcluir"));
         //Integer idEditar = Integer.parseInt(req.getParameter("paramEditar"));
 
         try {
             if (idExcluir != 0) {
-                ServicoUsuario sUsuario = new ServicoUsuarioImpl();
-                boolean uBD = sUsuario.excluir(idExcluir);
-                res.sendRedirect("/Blog/gerente?param=4");
+                ServicoPostagem sPostagem = new ServicoPostagemImpl();
+                boolean uBD = sPostagem.excluir(idExcluir);
+                res.sendRedirect("/Blog/gerente?param=5");
             }
         } catch (Exception e) {
 
         }
-
     }
 
 }

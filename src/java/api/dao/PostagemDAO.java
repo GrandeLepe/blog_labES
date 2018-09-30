@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package api.servico;
+package api.dao;
 
+import api.modelo.Postagem;
 import api.modelo.Usuario;
 import java.util.List;
 
@@ -12,10 +13,11 @@ import java.util.List;
  *
  * @author leonardo
  */
-public interface ServicoUsuario {
-    public void inserir(Usuario usuario);
-    public Usuario procurarPorNome(String nome);
-    public Usuario procurarPorId(Integer id);
-    public List<Usuario> procurarTudo();  
+public interface PostagemDAO {
+    
+    public int inserir(Postagem postagem);
+    public Postagem procurarPorId(Integer id);
+    public List<Postagem> procurarTudo();
+    public Usuario atualizar(Postagem postAnt, Postagem postAt);
     public boolean excluir(Integer id);
 }

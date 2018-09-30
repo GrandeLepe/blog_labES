@@ -43,6 +43,18 @@ public class ServicoUsuarioImpl implements ServicoUsuario {
     }
 
     @Override
+    public Usuario procurarPorId(Integer id) {
+        try {
+            UsuarioDAO uDao = new UsuarioDAOMariaDB10();
+            Usuario u = uDao.procurarPorId(id);
+            return u;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServicoUsuarioImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
     public List<Usuario> procurarTudo() {
         try {
             UsuarioDAO uDao = new UsuarioDAOMariaDB10();

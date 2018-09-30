@@ -23,7 +23,7 @@
             <article> 
                 <h2>Adicionar usuário</h2>
                 <hr>
-                <form class="baseForm" action="admUsusarioAdicionar" method="get">
+                <form class="baseForm" action="AdmUsusarioAdicionar" method="post">
                     <label class="formLabel">
                         Nome de Usuário(Apelido):
                         <input name="nome" type="text" required class="formInput formTextInput">
@@ -51,7 +51,7 @@
             </article>
 
 
-            <article>
+            <article style="overflow-x:auto;">
                 <h2 >Usuários cadastrados</h2>
                 <hr>
                 <table>
@@ -60,6 +60,7 @@
                         <th>Usuario</th>
                         <th>Nome</th>
                         <th>Email</th>
+                        <th>Tipo de usuário</th>
                         <th>Excluir</th>
                     </tr>
                     <%
@@ -71,8 +72,9 @@
                             out.print("<td>" + usuario.getNome() + "</td>");
                             out.print("<td>" + usuario.getNomeUsuario() + "</td>");
                             out.print("<td>" + usuario.getEmail() + "</td>");
+                            out.print("<td>" + (usuario.getPapel() == 1? "Administrador" : "Comum") + "</td>");
                     %>
-                    <td> <a href="admUsuario?paramExcluir=<%=usuario.getId().toString()%>">Excluir esse!</a>
+                    <td> <a href="AdmUsuario?paramExcluir=<%=usuario.getId().toString()%>">Excluir esse!</a>
                     </td>
                     <%
                             out.print("</tr>");

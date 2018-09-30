@@ -19,17 +19,15 @@
             <file>file:/C:/Users/Leonardo/OneDrive%20-%20Centro%20Paula%20Souza%20-%20FATEC/Documentos_FATEC/QUINTO_SEMESTRE/IES301-Laboratório%20de%20Engenharia%20de%20Software/Projeto/Blog/web/estilos/estiloLogin.css</file>
         </group>
         <group>
-            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/web/estilos/estilo.css</file>
             <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/web/servlet/admUsuario.java</file>
             <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/core/dao/UsuarioDAOMariaDB10.java</file>
-            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/web/servlet/Login.java</file>
-            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/core/servico/ServicoUsuarioImpl.java</file>
             <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/web/jsp/admUsuario.jsp</file>
+            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/web/estilos/estiloAdmUsuario.css</file>
+            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/core/servico/ServicoUsuarioImpl.java</file>
             <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/api/servico/ServicoUsuario.java</file>
-            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/web/jsp/menu.jsp</file>
-            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/web/jsp/login.jsp</file>
+            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/web/servlet/admUsusarioAdicionar.java</file>
             <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/api/dao/UsuarioDAO.java</file>
-            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/web/servlet/Gerente.java</file>
+            <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/api/modelo/Usuario.java</file>
             <file>file:/home/leonardo/Documentos/RepoFatec/blog_labES/src/java/web/servlet/Autenticador.java</file>
         </group>
     </open-files>

@@ -20,11 +20,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author leonardo
  */
-@WebServlet(name = "admUsusarioAdicionar", urlPatterns = {"/admUsusarioAdicionar"})
-public class admUsusarioAdicionar extends HttpServlet {
+@WebServlet(name = "AdmUsusarioAdicionar", urlPatterns = {"/AdmUsusarioAdicionar"})
+public class AdmUsusarioAdicionar extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+    protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         try {
             req.setCharacterEncoding("UTF-8");
