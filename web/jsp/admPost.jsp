@@ -23,12 +23,12 @@
         <%@include file="menu.jsp" %>
         <section>
             <article> 
-                <h2>Adicionar usuário</h2>
+                <h2>Adicionar postagem</h2>
                 <hr>
-                <form class="baseForm" action="admPostagemAdicionar" method="post">
+                <form class="baseForm" action="AdmPostagemAdicionar" method="post">
                     <label class="formLabel">
                         Titulo:
-                        <input name="nome" type="text" required class="formInput formTextInput">
+                        <input name="titulo" type="text" required class="formInput formTextInput">
                     </label>
                     <label class="formLabel">
                         Texto:

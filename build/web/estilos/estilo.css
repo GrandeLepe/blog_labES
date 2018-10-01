@@ -10,6 +10,8 @@ and open the template in the editor.
 
 @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text');
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700');
+/*@import url('https://fonts.googleapis.com/css?family=Syncopate');*/
+
 @import "estiloMenu.css";
 body{
     font-family: 'Comfortaa', cursive;
@@ -36,7 +38,9 @@ article{
 
 .h1Titulo{
     font-family: 'Libre Barcode 128 Text', cursive;
-    font-size: 300%;
+    /*font-family: 'Syncopate', sans-serif;*/
+    font-size: 250%;
+    margin: 10px;
 }
 
 .labelCometar{

@@ -54,7 +54,7 @@ public class ServicoPostagemImpl implements ServicoPostagem {
             List<Postagem> p = pDao.procurarTudo();
             return p;
         } catch (Exception e) {
-            System.out.println("erro procurarTudo postagem \n"+e);
+            System.out.println("erro procurarTudo postagem \n" + e);
         }
         return null;
     }
@@ -66,7 +66,15 @@ public class ServicoPostagemImpl implements ServicoPostagem {
 
     @Override
     public boolean excluir(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            PostagemDAO pDao = new PostagemDAOMariaDB10();
+            boolean retorno = pDao.excluir(id);
+            return retorno;
+        }catch (Exception e) {
+            System.out.println("Erro para excluir por id...ServiçoPostagemImpl");
+            System.out.println(e);
+            return false;
+        }
     }
 
 }

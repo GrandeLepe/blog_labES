@@ -41,7 +41,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
             retorno = comandoSQL.executeUpdate();
             comandoSQL.close();
             if (retorno != 1) {
-                System.out.println("Erro ao adicionar usuario");
+                System.out.println("Erro ao adicionar postagem");
             } else if (retorno == 1) {
                 System.out.println("Adicionado com sucesso!");
             }
