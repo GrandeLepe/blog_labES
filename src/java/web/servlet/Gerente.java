@@ -35,6 +35,8 @@ public class Gerente extends HttpServlet {
                 sc.getRequestDispatcher("/jsp/admUsuario.jsp").forward(req, resp);
             } else if (i.equals("5")) {
                 sc.getRequestDispatcher("/jsp/admPost.jsp").forward(req, resp);
+            } else if (i.equals("6")) {
+                sc.getRequestDispatcher("/jsp/cadastroUsuario.jsp").forward(req, resp);
             }
 
         } catch (Exception e) {

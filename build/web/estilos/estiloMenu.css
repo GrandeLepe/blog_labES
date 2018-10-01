@@ -8,6 +8,15 @@ and open the template in the editor.
     Author     : Leonardo
 */
 
+.barraNavegacao {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -15,6 +24,7 @@ ul {
     overflow: hidden;
     background-color: #333333;
     display: flex;
+    flex-wrap: wrap;
 }
 
 

@@ -26,15 +26,15 @@
                 </p>
 
 
-
+                <% if (u != null) {%>
                 <form>
                     <hr>
                     <label for="fcomentario">Comentar:</label><br>
-                    <input type="text" id="fcomentario" name="fcomentario" placeholder="Digite seu comentario aqui..."><br>
+                    <textarea id="fcomentario" name="fcomentario" placeholder="Digite seu comentario aqui..."rows="10" cols="30"></textarea><br>
                     <input type="submit" value="Comentar">
                     <hr>
                 </form>
-
+                <% }%>
                 <div class="div_comentarios">
                     <h3 class="labelCometar">Comentarios:</h3>
                     <div class="div_comentario">
@@ -67,14 +67,15 @@
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
+                <% if (u != null) {%>
                 <form>
                     <hr>
                     <label for="fcomentario">Comentar:</label><br>
-                    <input type="text" id="fcomentario" name="fcomentario" placeholder="Digite seu comentario aqui..."><br>
+                    <textarea id="fcomentario" name="fcomentario" placeholder="Digite seu comentario aqui..."rows="10" cols="30"></textarea><br>
                     <input type="submit" value="Comentar">
                     <hr>
                 </form>
-
+                <% }%>
                 <div class="div_comentarios">
                     <h3 class="labelCometar">Comentarios:</h3>
                     <div class="div_comentario">

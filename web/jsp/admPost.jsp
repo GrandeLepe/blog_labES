@@ -32,7 +32,8 @@
                     </label>
                     <label class="formLabel">
                         Texto:
-                        <input name="publicacao" type="text" required class="formInput formTextInput">
+                        <%-- <input name="publicacao" type="text" required class="formInput formTextInput"> --%>
+                        <textarea name="publicacao" rows="10" cols="30"></textarea>
                     </label>
                     <input type="submit" value="Postar" class="submitButton">                
                 </form>
@@ -45,9 +46,10 @@
                 <table>
                     <tr>
                         <th>ID</th>
-                        <th>Titulo</th>
+                        <th>Título</th>
                         <th>Nome do Autor</th>
                         <th>Data de postagem</th>
+                        <th>Editar</th>
                         <th>Excluir</th>
                     </tr>
                     <%
@@ -62,6 +64,7 @@
                             out.print("<td>" + uBD.procurarPorId(postagem.getId_autor()).getNome() + "</td>");
                             out.print("<td>" + postagem.getData() + "</td>");
                     %>
+                    <td> <a href="AdmPost?paramEditar=<%=postagem.getId_post().toString()%>">Editar esse!</a>
                     <td> <a href="AdmPost?paramExcluir=<%=postagem.getId_post().toString()%>">Excluir esse!</a>
                     </td>
                     <%

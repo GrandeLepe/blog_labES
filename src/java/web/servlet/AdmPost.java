@@ -33,7 +33,7 @@ public class AdmPost extends HttpServlet {
         try {
             if (idExcluir != 0) {
                 ServicoPostagem sPostagem = new ServicoPostagemImpl();
-                boolean uBD = sPostagem.excluir(idExcluir);
+                boolean pBD = sPostagem.excluir(idExcluir);
                 res.sendRedirect("/Blog/gerente?param=5");
             }
         } catch (Exception e) {

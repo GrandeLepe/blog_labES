@@ -82,10 +82,10 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
 
     @Override
     public List<Postagem> procurarTudo() {
-    
+
         List<Postagem> postagens = new ArrayList<>();
         try {
-           
+
             PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT id_post FROM blog.postagem");
             ResultSet rs = comandoSQLp.executeQuery();
 
@@ -98,7 +98,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
         } catch (Exception e) {
             return null;
         }
-    
+
     }
 
     @Override
@@ -108,7 +108,17 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
 
     @Override
     public boolean excluir(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            PreparedStatement comandoSQLp = conexao.prepareStatement("delete from blog.postagem where id_post = ?");
+            comandoSQLp.setString(1, id.toString());
+            ResultSet rs = comandoSQLp.executeQuery();
+            System.out.println(rs.getBoolean(0));
+            return rs.getBoolean(0);
+        } catch (Exception e) {
+            System.out.println("Erro para excluir por id... PostagemDAOMariaDB10");
+            System.out.println(e);
+        }
+        return false;
     }
 
 }

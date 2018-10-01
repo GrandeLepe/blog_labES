@@ -49,8 +49,6 @@
                     <input type="submit" value="Adicionar" class="submitButton">                
                 </form>
             </article>
-
-
             <article style="overflow-x:auto;">
                 <h2 >Usuários cadastrados</h2>
                 <hr>
@@ -61,6 +59,7 @@
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Tipo de usuário</th>
+                        <th>Editar</th>
                         <th>Excluir</th>
                     </tr>
                     <%
@@ -72,8 +71,9 @@
                             out.print("<td>" + usuario.getNome() + "</td>");
                             out.print("<td>" + usuario.getNomeUsuario() + "</td>");
                             out.print("<td>" + usuario.getEmail() + "</td>");
-                            out.print("<td>" + (usuario.getPapel() == 1? "Administrador" : "Comum") + "</td>");
+                            out.print("<td>" + (usuario.getPapel() == 1 ? "Administrador" : "Comum") + "</td>");
                     %>
+                    <td> <a href="AdmUsuario?paramEditar=s<%=usuario.getId().toString()%>">Editar esse!</a>
                     <td> <a href="AdmUsuario?paramExcluir=<%=usuario.getId().toString()%>">Excluir esse!</a>
                     </td>
                     <%

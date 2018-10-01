@@ -40,6 +40,23 @@ h1{
 h2{
     font-size: 100%;
 }
+textarea , select{
+    width: 100%;
+    padding:1px 1px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: both;
+    overflow: auto;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+textarea :focus {
+    border-color: #00bfff;
+}
 
 input[type=text], select {
     width: 100%;

@@ -10,7 +10,7 @@
 <% Usuario u = (Usuario) request.getAttribute("usuarioLogado");%>
 
 <header>
-    <nav>
+    <nav class="barraNavegacao">
         <ul>
             <li><a href="/Blog/gerente?param=1">Inicio</a></li>
             <li><a href="/Blog/gerente?param=2">Sobre o blog</a></li>
@@ -25,10 +25,12 @@
             <li><a href="/Blog/gerente?param=3">Olá! <%= u.getNomeUsuario()%></a></li>
                 <% } else { %>
             <li><a>Olá! Visitante</a></li>
+            <li><a href="/Blog/gerente?param=6">Se cadastrar!</a></li>
                 <% }%>
 
             <li><a href="/Blog/Login">Entrar </a></li>
 
         </ul>
     </nav>
+                <div style="margin-top: 60px"></div>
 </header>

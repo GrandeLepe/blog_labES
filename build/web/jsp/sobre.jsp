@@ -14,7 +14,7 @@
 </head>
 <body>
     <%@include file="menu.jsp" %>
-    <section>
+    <section style="margin-top: 60px">
         <article>
             <h1 class="h1Titulo">Sobre o Blog</h1>
             <p>
