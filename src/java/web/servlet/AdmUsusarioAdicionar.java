@@ -46,7 +46,12 @@ public class AdmUsusarioAdicionar extends HttpServlet {
             usuario.setPapel(papel);
             ServicoUsuario sUsuario = new ServicoUsuarioImpl();
             sUsuario.inserir(usuario);
-            res.sendRedirect("/Blog/gerente?param=4");
+            String param = req.getParameter("param");
+            if (param.equals("autocadastro")) {
+                res.sendRedirect("/Blog/gerente?param=1");
+            } else {
+                res.sendRedirect("/Blog/gerente?param=4");
+            }
         } catch (Exception e) {
             System.out.println("erro adicionar usuario...admUsusarioAdicionar");
             System.out.println(e);

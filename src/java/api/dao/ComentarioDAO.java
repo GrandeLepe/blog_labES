@@ -5,6 +5,7 @@
  */
 package api.dao;
 
+import api.modelo.Comentario;
 import api.modelo.Postagem;
 import api.modelo.Usuario;
 import java.util.List;
@@ -13,11 +14,10 @@ import java.util.List;
  *
  * @author leonardo
  */
-public interface PostagemDAO {
-    
-    public int inserir(Postagem postagem);
-    public Postagem procurarPorId(Integer id);
-    public List<Postagem> procurarTudo();
-    public Postagem atualizar(Postagem postAnt, Postagem postAt);
+public interface ComentarioDAO {
+    public Integer inserir(Comentario comentario);
+    public Comentario procurarPorId(Integer id);
+    public List<Comentario> procurarTudo();
+    public Comentario atualizar(Comentario comentarioAnt, Comentario comentarioAt);
     public boolean excluir(Integer id);
 }

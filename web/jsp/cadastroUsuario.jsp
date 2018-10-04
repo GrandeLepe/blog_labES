@@ -19,7 +19,7 @@
             <article> 
                 <h2>Adicionar usuário</h2>
                 <hr>
-                <form class="baseForm" action="AdmUsusarioAdicionar" method="post">
+                <form class="baseForm" action="AdmUsusarioAdicionar?param=autocadastro" method="post">
                     <label class="formLabel">
                         Nome de Usuário(Apelido):
                         <input name="nome" type="text" required class="formInput formTextInput">
@@ -38,7 +38,7 @@
                     </label>
                     <label class="formLabel">
                         Tipo de usuário:<br>
-                        <input type="radio" name="papel" value="0"> Usuário comum<br>
+                        <input type="radio" name="papel" checked value="0"> Usuário comum<br>
                     </label>
 
                     <input type="submit" value="Adicionar" class="submitButton">                

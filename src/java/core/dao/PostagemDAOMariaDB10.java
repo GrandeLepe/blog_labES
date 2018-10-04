@@ -102,7 +102,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
     }
 
     @Override
-    public Usuario atualizar(Postagem postAnt, Postagem postAt) {
+    public Postagem atualizar(Postagem postAnt, Postagem postAt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

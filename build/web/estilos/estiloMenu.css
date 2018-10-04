@@ -9,12 +9,12 @@ and open the template in the editor.
 */
 
 .barraNavegacao {
-  
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
 }
 
 ul {
@@ -39,6 +39,14 @@ li a {
     padding: 16px;
     text-decoration: none;
 }
+
+.nome{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;}
+
 
 li a:hover {
     background-color: deepskyblue;

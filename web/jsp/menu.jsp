@@ -15,16 +15,16 @@
             <li><a href="/Blog/gerente?param=1">Inicio</a></li>
             <li><a href="/Blog/gerente?param=2">Sobre o blog</a></li>
                 <% if (u != null && u.getPapel() == 1) {%>
-            <li><a href="/Blog/gerente?param=4">Usuarios</a></li>
+            <li><a href="/Blog/gerente?param=4">Usuários</a></li>
             <li><a href="/Blog/gerente?param=5">Posts</a></li>
+            <li><a href="/Blog/gerente?param=7">Comentários</a></li>
                 <% }%>
-            
-            
-            
-                <% if (u != null) {%>
-            <li><a href="/Blog/gerente?param=3">Olá! <%= u.getNomeUsuario()%></a></li>
+
+
+
+            <% if (u != null) {%>
+            <li class="nome"><%= u.getNomeUsuario()%><li>
                 <% } else { %>
-            <li><a>Olá! Visitante</a></li>
             <li><a href="/Blog/gerente?param=6">Se cadastrar!</a></li>
                 <% }%>
 
@@ -32,7 +32,7 @@
 
         </ul>
     </nav>
-                <div style="margin-top: 60px"></div>
-                
-                
+    <div style="margin-top: 60px"></div>
+
+
 </header>
