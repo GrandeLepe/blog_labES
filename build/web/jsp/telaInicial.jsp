@@ -4,6 +4,10 @@
     Author     : Leonardo
 --%>
 
+<%@page import="api.modelo.Comentario"%>
+<%@page import="core.servico.ServicoComentarioImpl"%>
+<%@page import="api.servico.ServicoComentario"%>
+<%@page import="api.servico.ServicoComentario"%>
 <%@page import="api.modelo.Postagem"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
@@ -25,7 +29,10 @@
         <%
             ServicoPostagem sPostagem = new ServicoPostagemImpl();
             List<Postagem> pBD = sPostagem.procurarTudo();
+            ServicoComentario sComentario = new ServicoComentarioImpl();
+
             for (Postagem post : pBD) {
+                List<Comentario> cBD = sComentario.procurarTudoId_post(post.getId_post());
                 out.print("<section>");
                 out.print("<article>");
                 out.print("<h1 class='h1Titulo'>" + post.getTitulo() + "</h1>");
@@ -39,6 +46,15 @@
                             + "<input type='submit' value='Comentar'>"
                             + "<hr>"
                             + "</form>");
+                }
+                out.print("<div class='div_comentarios'>"
+                        + "<h3 class='labelCometar'>Comentarios:</h3>");
+                for (Comentario comentario : cBD) {
+                    out.print("<div class='div_comentario'><hr><p>");
+                    out.print(comentario.getComentario());
+                    out.print("</p><hr></div>");
+
+                    
                 }
                 out.print("</section>");
                 out.print("</article>");

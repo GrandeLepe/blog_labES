@@ -16,6 +16,7 @@ public interface ServicoComentario {
     public Integer inserir(Comentario comentario);
     public Comentario procurarPorId(Integer id);
     public List<Comentario> procurarTudo();
+    public List<Comentario> procurarTudoId_post(Integer id);
     public Comentario atualizar(Comentario comentarioAnt, Comentario comentarioAt);
     public boolean excluir(Integer id);
 }

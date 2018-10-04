@@ -61,6 +61,18 @@ public class ServicoComentarioImpl implements ServicoComentario {
     }
 
     @Override
+    public List<Comentario> procurarTudoId_post(Integer id) {
+        try {
+            ComentarioDAO cDAO = new ComentarioDAOMariaDB10();
+            List<Comentario> c = cDAO.procurarTudoId_post(id);
+            return c;
+        } catch (Exception e) {
+            System.out.println("erro procurarTudoId_post comentario...ServicoComentarioImpl \n" + e);
+        }
+        return null;
+    }
+
+    @Override
     public Comentario atualizar(Comentario comentarioAnt, Comentario comentarioAt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

@@ -107,6 +107,29 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
     }
 
     @Override
+    public List<Comentario> procurarTudoId_post(Integer id) {
+        List<Comentario> comentarios = new ArrayList<>();
+        Comentario comentario;
+        try {
+
+            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT id_comentario FROM blog.comentario");
+            ResultSet rs = comandoSQLp.executeQuery();
+
+            while (rs.next()) {
+                comentario = procurarPorId(rs.getInt(1));
+                if (comentario.getId_post() == id) {
+                    comentarios.add(comentario);
+                }
+
+            }
+            return comentarios;
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
     public Comentario atualizar(Comentario comentarioAnt, Comentario comentarioAt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -125,4 +148,5 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
         }
         return false;
     }
+
 }
