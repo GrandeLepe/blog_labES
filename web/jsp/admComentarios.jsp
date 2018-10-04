@@ -45,8 +45,8 @@
                             out.print("<td>" + comentario.getComentario() + "</td>");
                             out.print("<td>" + comentario.getData() + "</td>");
                     %>
-                    <td> <a href="AdmPost?paramEditar=<%=comentario.getId_comentario().toString()%>">Editar esse!</a>
-                    <td> <a href="AdmPost?paramExcluir=<%=comentario.getId_comentario().toString()%>">Excluir esse!</a>
+                    <td> <a href="AdmComentario?paramEditar=<%=comentario.getId_comentario().toString()%>">Editar esse!</a>
+                    <td> <a href="AdmComentario?paramExcluir=<%=comentario.getId_comentario().toString()%>">Excluir esse!</a>
                     </td>
                     <%
                             out.print("</tr>");

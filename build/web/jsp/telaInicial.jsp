@@ -37,12 +37,15 @@
                 out.print("<article>");
                 out.print("<h1 class='h1Titulo'>" + post.getTitulo() + "</h1>");
                 out.print("<section>" + post.getPublicacao() + "</section>");
-                out.print("");
+                //TODO Corrigir isso e pegar o nome do dono de cada post igual faz com o comentario
+                out.print("<h2>Autor:Grande Lepe</h2>");
+                
                 if (u != null) {
-                    out.print("<form>"
+                    //TODO corrigir para pegar o id do usuario que postou
+                    out.print("<form class='baseForm' action='AdmComentarioAdicionar?idAutor=1&idPost="+post.getId_post()+"' method='post'>"
                             + "<hr>"
                             + "<label for='fcomentario'>Comentar:</label><br>"
-                            + "<textarea id='fcomentario' name='fcomentario' placeholder='Digite seu comentario aqui...'rows='10' cols='30'></textarea><br>"
+                            + "<textarea id='comentario' name='comentario' placeholder='Digite seu comentario aqui...'rows='10' cols='30'></textarea><br>"
                             + "<input type='submit' value='Comentar'>"
                             + "<hr>"
                             + "</form>");
