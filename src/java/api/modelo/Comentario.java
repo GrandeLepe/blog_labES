@@ -11,19 +11,19 @@ package api.modelo;
  */
 public class Comentario {
 
-    private Integer id_comentario;
-    private Integer id_post;
+    private Integer idComentario;
+    private Integer idPost;
     private String tituloPost;
     private String comentario;
-    private Integer id_autor;
+    private Integer idAutor;
     private String nomeAutor;
 
-    public Comentario(Integer id_comentario, Integer id_post, String tituloPost, String comentario, Integer id_autor, String nomeAutor, String data) {
-        this.id_comentario = id_comentario;
-        this.id_post = id_post;
+    public Comentario(Integer idComentario, Integer idPost, String tituloPost, String comentario, Integer idAutor, String nomeAutor, String data) {
+        this.idComentario = idComentario;
+        this.idPost = idPost;
         this.tituloPost = tituloPost;
         this.comentario = comentario;
-        this.id_autor = id_autor;
+        this.idAutor = idAutor;
         this.nomeAutor = nomeAutor;
         this.data = data;
     }
@@ -50,19 +50,19 @@ public class Comentario {
     private String data;
 
     public Integer getId_comentario() {
-        return id_comentario;
+        return idComentario;
     }
 
     public void setId_comentario(Integer id_comentario) {
-        this.id_comentario = id_comentario;
+        this.idComentario = id_comentario;
     }
 
     public Integer getId_post() {
-        return id_post;
+        return idPost;
     }
 
     public void setId_post(Integer id_post) {
-        this.id_post = id_post;
+        this.idPost = id_post;
     }
 
     public String getComentario() {
@@ -74,11 +74,11 @@ public class Comentario {
     }
 
     public Integer getId_autor() {
-        return id_autor;
+        return idAutor;
     }
 
     public void setId_autor(Integer id_autor) {
-        this.id_autor = id_autor;
+        this.idAutor = id_autor;
     }
 
     public String getData() {

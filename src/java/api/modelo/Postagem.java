@@ -13,21 +13,21 @@ import java.util.Date;
  */
 public class Postagem {
 
-    private Integer id_post;
+    private Integer idPost;
     private String titulo;
     private String publicacao;
-    private Integer id_autor;
+    private Integer idAutor;
     private String data;
 
     public Postagem() {
     }
 
     public Integer getId_post() {
-        return id_post;
+        return idPost;
     }
 
-    public void setId_post(Integer id_post) {
-        this.id_post = id_post;
+    public void setId_post(Integer idPost) {
+        this.idPost = idPost;
     }
 
     public String getTitulo() {
@@ -47,11 +47,11 @@ public class Postagem {
     }
 
     public Integer getId_autor() {
-        return id_autor;
+        return idAutor;
     }
 
-    public void setId_autor(Integer id_autor) {
-        this.id_autor = id_autor;
+    public void setId_autor(Integer idAutor) {
+        this.idAutor = idAutor;
     }
 
     public String getData() {
