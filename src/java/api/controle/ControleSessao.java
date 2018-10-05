@@ -24,8 +24,15 @@ public class ControleSessao {
     }
 
     public static void removeSessao(String id) {
-        sessao.remove(id);
-        System.out.println("Usuario removido da sessao");
+        for (String string : sessao) {
+            if (string.equals(id)) {
+                sessao.remove(string.indexOf(id));
+                System.out.println("Usuario removido da sessao");
+                break;
+            }
+        }
+        
+        
     }
 
     public static boolean procuraSessao(String id) {

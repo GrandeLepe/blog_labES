@@ -18,6 +18,7 @@ public interface PostagemDAO {
     public int inserir(Postagem postagem);
     public Postagem procurarPorId(Integer id);
     public List<Postagem> procurarTudo();
+    public List<Postagem> procurarTudoDoAutor(Integer id);
     public Postagem atualizar(Postagem postAnt, Postagem postAt);
     public boolean excluir(Integer id);
 }

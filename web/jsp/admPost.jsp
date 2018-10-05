@@ -4,6 +4,7 @@
     Author     : leonardo
 --%>
 
+
 <%@page import="api.servico.ServicoUsuario"%>
 <%@page import="api.modelo.Postagem"%>
 <%@page import="java.util.List"%>
@@ -32,7 +33,6 @@
                     </label>
                     <label class="formLabel">
                         Texto:
-                        <%-- <input name="publicacao" type="text" required class="formInput formTextInput"> --%>
                         <textarea name="publicacao" rows="10" cols="30"></textarea>
                     </label>
                     <input type="submit" value="Postar" class="submitButton">                
@@ -41,7 +41,7 @@
 
 
             <article style="overflow-x:auto;">
-                <h2 >Usuários cadastrados</h2>
+                <h2 >Publicações</h2>
                 <hr>
                 <table>
                     <tr>
@@ -49,22 +49,23 @@
                         <th>Título</th>
                         <th>Nome do Autor</th>
                         <th>Data de postagem</th>
-                        <th>Editar</th>
+                        <!--<th>Editar</th>-->
                         <th>Excluir</th>
                     </tr>
                     <%
                         ServicoPostagem sPostagem = new ServicoPostagemImpl();
+                        
                         List<Postagem> sBD = sPostagem.procurarTudo();
-                        for (Postagem postagem : sBD) {
+                        
+                        for (Postagem postagem : sBD){
                             ServicoUsuario uBD = new ServicoUsuarioImpl();
-                            
+
                             out.print("<tr>");
                             out.print("<td>" + postagem.getId_post().toString() + "</td>");
-                            out.print("<td>" + postagem.getTitulo()+ "</td>");
+                            out.print("<td>" + postagem.getTitulo() + "</td>");
                             out.print("<td>" + uBD.procurarPorId(postagem.getId_autor()).getNome() + "</td>");
                             out.print("<td>" + postagem.getData() + "</td>");
                     %>
-                    <td> <a href="AdmPost?paramEditar=<%=postagem.getId_post().toString()%>">Editar esse!</a>
                     <td> <a href="AdmPost?paramExcluir=<%=postagem.getId_post().toString()%>">Excluir esse!</a>
                     </td>
                     <%

@@ -102,6 +102,30 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
     }
 
     @Override
+    public List<Postagem> procurarTudoDoAutor(Integer id) {
+        List<Postagem> postagens = new ArrayList<>();
+        Postagem postagem;
+        try {
+
+            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT id_post FROM blog.postagem");
+            ResultSet rs = comandoSQLp.executeQuery();
+
+            while (rs.next()) {
+                postagem = procurarPorId(rs.getInt(1));
+                if (postagem.getId_autor() == id) {
+                    postagens.add(postagem);
+                    System.out.println(rs.getInt(1));
+                }
+            }
+            return postagens;
+
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    @Override
     public Postagem atualizar(Postagem postAnt, Postagem postAt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

@@ -59,7 +59,7 @@
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Tipo de usuário</th>
-                        <th>Editar</th>
+                        <!--<th>Editar</th>-->
                         <th>Excluir</th>
                     </tr>
                     <%
@@ -73,7 +73,7 @@
                             out.print("<td>" + usuario.getEmail() + "</td>");
                             out.print("<td>" + (usuario.getPapel() == 1 ? "Administrador" : "Comum") + "</td>");
                     %>
-                    <td> <a href="AdmUsuario?paramEditar=s<%=usuario.getId().toString()%>">Editar esse!</a>
+                   
                     <td> <a href="AdmUsuario?paramExcluir=<%=usuario.getId().toString()%>">Excluir esse!</a>
                     </td>
                     <%

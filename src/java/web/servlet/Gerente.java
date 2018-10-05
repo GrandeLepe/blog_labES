@@ -5,6 +5,7 @@
  */
 package web.servlet;
 
+import api.modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletContext;

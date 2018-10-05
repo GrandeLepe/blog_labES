@@ -60,6 +60,18 @@ public class ServicoPostagemImpl implements ServicoPostagem {
     }
 
     @Override
+    public List<Postagem> procurarTudoDoAutor(Integer id) {
+        try {
+            PostagemDAO pDao = new PostagemDAOMariaDB10();
+            List<Postagem> p = pDao.procurarTudo();
+            return p;
+        } catch (Exception e) {
+            System.out.println("erro procurarTudo postagem \n" + e);
+        }
+        return null;
+    }
+
+    @Override
     public Usuario atualizar(Postagem postAnt, Postagem postAt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -70,7 +82,7 @@ public class ServicoPostagemImpl implements ServicoPostagem {
             PostagemDAO pDao = new PostagemDAOMariaDB10();
             boolean retorno = pDao.excluir(id);
             return retorno;
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Erro para excluir por id...ServiçoPostagemImpl");
             System.out.println(e);
             return false;

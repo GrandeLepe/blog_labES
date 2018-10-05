@@ -30,7 +30,7 @@
                         <th>Nome do Autor</th>
                         <th>Comentário</th>
                         <th>Data de postagem</th>
-                        <th>Editar</th>
+                        <!--<th>Editar</th>-->
                         <th>Excluir</th>
                     </tr>
                     <%
@@ -45,7 +45,6 @@
                             out.print("<td>" + comentario.getComentario() + "</td>");
                             out.print("<td>" + comentario.getData() + "</td>");
                     %>
-                    <td> <a href="AdmComentario?paramEditar=<%=comentario.getId_comentario().toString()%>">Editar esse!</a>
                     <td> <a href="AdmComentario?paramExcluir=<%=comentario.getId_comentario().toString()%>">Excluir esse!</a>
                     </td>
                     <%

@@ -18,16 +18,19 @@
             <li><a href="/Blog/gerente?param=4">Usuários</a></li>
             <li><a href="/Blog/gerente?param=5">Posts</a></li>
             <li><a href="/Blog/gerente?param=7">Comentários</a></li>
+                <% } else if (u != null && u.getPapel() == 0) {%>
+            <li><a href="/Blog/gerente?param=5">Posts</a></li>
+            <li><a href="/Blog/gerente?param=7">Comentários</a></li>
                 <% }%>
 
-
+            
 
             <% if (u != null) {%>
             <li class="nome"><%= u.getNomeUsuario()%><li>
                 <% } else { %>
             <li><a href="/Blog/gerente?param=6">Se cadastrar!</a></li>
                 <% }%>
-
+            
             <li><a href="/Blog/Login">Entrar </a></li>
 
         </ul>
