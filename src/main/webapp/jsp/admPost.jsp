@@ -11,19 +11,22 @@
 <%@page import="core.servico.ServicoPostagemImpl"%>
 <%@page import="api.servico.ServicoPostagem"%>
 <%@page import="core.servico.ServicoUsuarioImpl"%>
+<%@page import="api.modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Adm Post-Blog</title>
-        <link href ="estilos/estiloAdmUsuario.css" rel ="stylesheet" type ="text/css">
+        <link href="estilos/estiloAdmUsuario.css" rel="stylesheet" type="text/css">
     </head>
+
     <body>
         <%@include file="menu.jsp" %>
         <section>
-            <article> 
+            <article>
                 <h2>Adicionar postagem</h2>
                 <hr>
                 <form class="baseForm" action="AdmPostagemAdicionar" method="post">
@@ -35,13 +38,14 @@
                         Texto:
                         <textarea name="publicacao" rows="10" cols="30"></textarea>
                     </label>
-                    <input type="submit" value="Postar" class="submitButton">                
+                    <input type="radio" name="id_autor" value=<%=u.getId()%> checked>
+                    <input type="submit" value="Postar" class="submitButton">
                 </form>
             </article>
 
 
             <article style="overflow-x:auto;">
-                <h2 >Publicações</h2>
+                <h2>Publicações</h2>
                 <hr>
                 <table>
                     <tr>
@@ -54,10 +58,18 @@
                     </tr>
                     <%
                         ServicoPostagem sPostagem = new ServicoPostagemImpl();
+
+                        System.out.println(u.getNome());
+
+                        List<Postagem> sBD = null;
+
+                        if (u.getPapel() == 1) {
+                            sBD = sPostagem.procurarTudo();
+                        } else {
+                            sBD = sPostagem.procurarTudoDoAutor(u.getId());
+                        }
                         
-                        List<Postagem> sBD = sPostagem.procurarTudo();
-                        
-                        for (Postagem postagem : sBD){
+                        for (Postagem postagem : sBD) {
                             ServicoUsuario uBD = new ServicoUsuarioImpl();
 
                             out.print("<tr>");
@@ -77,4 +89,5 @@
             </article>
         </section>
     </body>
+
 </html>

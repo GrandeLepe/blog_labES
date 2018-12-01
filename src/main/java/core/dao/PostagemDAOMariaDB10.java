@@ -31,8 +31,10 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
     public int inserir(Postagem postagem) {
         int retorno = 0;
         try {
-            //PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUE(?,?,?,?,?,?)");
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO blog.postagem (titulo, publicacao, id_autor) VALUES (?, ?, ?)");
+            // PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario
+            // VALUE(?,?,?,?,?,?)");
+            PreparedStatement comandoSQL = conexao
+                    .prepareStatement("INSERT INTO blog.postagem (titulo, publicacao, id_autor) VALUES (?, ?, ?)");
 
             comandoSQL.setString(1, postagem.getTitulo());
             comandoSQL.setString(2, postagem.getPublicacao());
@@ -84,14 +86,16 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
     public List<Postagem> procurarTudo() {
 
         List<Postagem> postagens = new ArrayList<>();
+        Postagem postagem;
         try {
 
-            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT id_post FROM blog.postagem");
+            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT * FROM blog.postagem ORDER BY id_post DESC");
             ResultSet rs = comandoSQLp.executeQuery();
 
             while (rs.next()) {
-                postagens.add(procurarPorId(rs.getInt(1)));
-                System.out.println(rs.getInt(1));
+
+                postagem = new Postagem(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+                postagens.add(postagem);
             }
             return postagens;
 
@@ -107,15 +111,14 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
         Postagem postagem;
         try {
 
-            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT id_post FROM blog.postagem");
+            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT * FROM blog.postagem WHERE id_autor = ?");
+            comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
 
             while (rs.next()) {
-                postagem = procurarPorId(rs.getInt(1));
-                if (postagem.getId_autor() == id) {
-                    postagens.add(postagem);
-                    System.out.println(rs.getInt(1));
-                }
+
+                postagem = new Postagem(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+                postagens.add(postagem);
             }
             return postagens;
 
@@ -127,15 +130,20 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
 
     @Override
     public Postagem atualizar(Postagem postAnt, Postagem postAt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+        // Tools | Templates.
     }
 
     @Override
     public boolean excluir(Integer id) {
         try {
-            PreparedStatement comandoSQLp = conexao.prepareStatement("delete from blog.postagem where id_post = ?");
+            //TODO Melhorar essa parte de exclusão 
+            PreparedStatement comandoSQLp = conexao.prepareStatement("DELETE FROM blog.comentario WHERE id_post = ?");
             comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
+            comandoSQLp = conexao.prepareStatement("DELETE FROM blog.postagem WHERE id_post = ?");
+            comandoSQLp.setString(1, id.toString());
+            rs = comandoSQLp.executeQuery();
             System.out.println(rs.getBoolean(0));
             return rs.getBoolean(0);
         } catch (Exception e) {

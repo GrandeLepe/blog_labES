@@ -32,8 +32,10 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
 
         Integer retorno = 0;
         try {
-            //PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUE(?,?,?,?,?,?)");
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO blog.comentario(id_autor, id_post, comentario) VALUES( ?,  ?,  ?)");
+            // PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario
+            // VALUE(?,?,?,?,?,?)");
+            PreparedStatement comandoSQL = conexao
+                    .prepareStatement("INSERT INTO blog.comentario(id_autor, id_post, comentario) VALUES( ?,  ?,  ?)");
 
             comandoSQL.setString(1, comentario.getId_autor().toString());
             comandoSQL.setString(2, comentario.getId_post().toString());
@@ -58,11 +60,9 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
     public Comentario procurarPorId(Integer id) {
         Comentario c = null;
         try {
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select c.*, u.nomeUsuario, p.titulo "
-                    + "from blog.comentario c,blog.usuario u, blog.postagem p "
-                    + "where c.id_comentario = ? "
-                    + "and c.id_autor = u.id "
-                    + "and c.id_post = p.id_post");
+            PreparedStatement comandoSQLp = conexao.prepareStatement(
+                    "select c.*, u.nomeUsuario, p.titulo " + "from blog.comentario c,blog.usuario u, blog.postagem p "
+                            + "where c.id_comentario = ? " + "and c.id_autor = u.id " + "and c.id_post = p.id_post");
             comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
             System.out.println("Conectado comentario...(metodo procurar por id_comentario)");
@@ -112,7 +112,8 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
         Comentario comentario;
         try {
 
-            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT id_comentario FROM blog.comentario");
+            PreparedStatement comandoSQLp = conexao
+                    .prepareStatement("SELECT id_comentario FROM blog.comentario ORDER BY id_comentario DESC");
             ResultSet rs = comandoSQLp.executeQuery();
 
             while (rs.next()) {
@@ -131,13 +132,15 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
 
     @Override
     public Comentario atualizar(Comentario comentarioAnt, Comentario comentarioAt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public boolean excluir(Integer id) {
         try {
-            PreparedStatement comandoSQLp = conexao.prepareStatement("delete from blog.comentario where id_comentario = ?");
+            PreparedStatement comandoSQLp = conexao
+                    .prepareStatement("delete from blog.comentario where id_comentario = ?");
             comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
             System.out.println(rs.getBoolean(0));

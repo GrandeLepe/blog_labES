@@ -12,7 +12,7 @@ import java.util.List;
  * @author Leonardo
  */
 public class Usuario extends Identificador{
-    private Long id;
+    private Integer id;
     private String nome;
     private String senha;
     private String nomeUsuario;
@@ -20,7 +20,7 @@ public class Usuario extends Identificador{
     private Integer papel;
     
     public Usuario(){}
-    public Usuario(Long id, String nome, String senha,
+    public Usuario(Integer id, String nome, String senha,
                    String nomeUsuario, String email,
                    Integer papel){
         super(id);
@@ -47,11 +47,11 @@ public class Usuario extends Identificador{
         this.senha = senha;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

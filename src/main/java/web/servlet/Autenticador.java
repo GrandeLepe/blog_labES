@@ -45,10 +45,10 @@ public class Autenticador extends HttpServlet {
         ServletContext sc = req.getServletContext();
         if (uBD != null && uBD.getSenha().equals(senha)) {
             try {
-//                HttpSession sessao = req.getSession();
-//                sessao.setAttribute("usuarioLogado", uBD);
-                req.setAttribute("usuarioLogado", uBD);
-                ControleSessao.adicionarSessao(uBD.getId().toString());
+                HttpSession sessao = req.getSession();
+                sessao.setAttribute("usuarioLogado", uBD);
+                //req.setAttribute("usuarioLogado", uBD);
+                //ControleSessao.adicionarSessao(uBD.getId().toString());
                 sc.getRequestDispatcher("/jsp/telaInicial.jsp").forward(req, resp);
             } catch (Exception e) {
 

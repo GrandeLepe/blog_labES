@@ -63,7 +63,7 @@ public class ServicoPostagemImpl implements ServicoPostagem {
     public List<Postagem> procurarTudoDoAutor(Integer id) {
         try {
             PostagemDAO pDao = new PostagemDAOMariaDB10();
-            List<Postagem> p = pDao.procurarTudo();
+            List<Postagem> p = pDao.procurarTudoDoAutor(id);
             return p;
         } catch (Exception e) {
             System.out.println("erro procurarTudo postagem \n" + e);

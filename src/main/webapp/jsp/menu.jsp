@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="api.modelo.Usuario"%>
 <!DOCTYPE html>
-<% Usuario u = (Usuario) request.getAttribute("usuarioLogado");%>
+<% Usuario u = (Usuario) session.getAttribute("usuarioLogado");%>
 
 <header>
     <nav class="barraNavegacao">

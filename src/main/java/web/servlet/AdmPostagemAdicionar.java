@@ -38,7 +38,7 @@ public class AdmPostagemAdicionar extends HttpServlet {
         try {
             String titulo = req.getParameter("titulo");
             String publicacao = req.getParameter("publicacao");
-            Integer id_autor = 1; // acochambrando pra não dar erro e implementar isso depois
+            Integer id_autor = Integer.parseInt(req.getParameter("id_autor"));
             
             
             Postagem postagem = new Postagem();

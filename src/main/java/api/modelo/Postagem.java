@@ -18,8 +18,19 @@ public class Postagem {
     private String publicacao;
     private Integer idAutor;
     private String data;
+    private String nomeAutor;
+
+    
 
     public Postagem() {
+    }
+    
+    public Postagem(Integer idPost, String titulo, String publicacao, Integer idAutor, String data) {
+        this.idPost = idPost;
+        this.titulo = titulo;
+        this.publicacao = publicacao;
+        this.idAutor = idAutor;
+        this.data = data;
     }
 
     public Integer getId_post() {
@@ -54,12 +65,22 @@ public class Postagem {
         this.idAutor = idAutor;
     }
 
+    
+
     public String getData() {
         return data;
     }
 
     public void setData(String data) {
         this.data = data;
+    }
+    
+    public String getNomeAutor() {
+        return nomeAutor;
+    }
+
+    public void setNomeAutor(String nomeAutor) {
+        this.nomeAutor = nomeAutor;
     }
 
 }

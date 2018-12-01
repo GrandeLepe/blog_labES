@@ -67,7 +67,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
             System.out.println("Conectado...(metodo procurar por id)");
             rs.next();
             u = new Usuario();
-            u.setId(rs.getLong(1));
+            u.setId(rs.getInt(1));
             u.setNome(rs.getString(2));
             u.setSenha(rs.getString(3));
             u.setNomeUsuario(rs.getString(4));
@@ -96,7 +96,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
             System.out.println("Conectado...(metodo procurar por nome)");
             rs.next();
             u = new Usuario();
-            u.setId(rs.getLong(1));
+            u.setId(rs.getInt(1));
             u.setNome(rs.getString(2));
             u.setSenha(rs.getString(3));
             u.setNomeUsuario(rs.getString(4));
@@ -153,11 +153,17 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
     @Override
     public boolean excluir(Integer id) {
         try {
-            PreparedStatement comandoSQLp = conexao.prepareStatement("delete from blog.usuario where id = ?");
+            //TODO Melhorar essa parte do codigo
+            PreparedStatement comandoSQLp = conexao.prepareStatement("delete from blog.comentario where id_autor = ?");
             comandoSQLp.setString(1, id.toString());
-            ResultSet rs = comandoSQLp.executeQuery();
-            System.out.println(rs.getBoolean(0));
-            return rs.getBoolean(0);
+            comandoSQLp.executeQuery();
+            comandoSQLp = conexao.prepareStatement("delete from blog.postagem where id_autor = ?");
+            comandoSQLp.setString(1, id.toString());
+            comandoSQLp.executeQuery();
+            comandoSQLp = conexao.prepareStatement("delete from blog.usuario where id = ?");
+            comandoSQLp.setString(1, id.toString());
+            comandoSQLp.executeQuery();
+            return true;
         } catch (Exception e) {
             System.out.println("Erro para excluir por id... usuarioDAOMariaDB10");
             System.out.println(e);

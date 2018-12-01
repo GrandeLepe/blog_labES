@@ -10,17 +10,17 @@ package api.modelo;
  * @author Leonardo
  */
 public class Identificador {
-    private Long id;
+    private Integer id;
 
     public Identificador(){}
-    public Identificador(Long id){
+    public Identificador(Integer id){
         this.setId(id);
     }
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
