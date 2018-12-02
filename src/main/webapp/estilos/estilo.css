@@ -10,7 +10,7 @@ and open the template in the editor.
 
 @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text');
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700');
-/*@import url('https://fonts.googleapis.com/css?family=Syncopate');*/
+
 
 @import "estiloMenu.css";
 body{
@@ -18,14 +18,11 @@ body{
     background-color: #00bfff;
 }
 
-footer { 
-    display: block;
-}
 
 section { 
     display: block;
     margin: 10px;
-    
+
 }
 
 article{
@@ -33,18 +30,29 @@ article{
     background-color: #f2f2f2;
     padding: 20px;
     margin-bottom: 10px;
-    
+
 }
 
 .h1Titulo{
     font-family: 'Libre Barcode 128 Text', cursive;
-    /*font-family: 'Syncopate', sans-serif;*/
-    font-size: 250%;
+    font-weight: normal;
+    font-size: 300%;
     margin: 10px;
 }
 
 .labelCometar{
     font-family: 'Comfortaa', cursive;
+}
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('./font/OTF/Arkipelago.otf') format('otf'),
+        url('./font/TTF/Arkipelago.ttf') format('truetype');
+}
+
+.autorFont{
+    font-family: 'MyWebFont',cursive;
+    font-size: 190%;
+    font-weight: normal;
 }
 .div_comentarios{
     font-family: 'Comfortaa', cursive;
@@ -105,4 +113,21 @@ textarea :focus {
     border-color: #00bfff;
 }
 
+.footer {
+    background-color: #0099cc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+    left: 0;
+    width: 100%;
+    display: block;
+}
 
+@media only screen and (max-width: 600px) {
+    section { 
+        display: block;
+        margin: 1px;
+
+    }
+}

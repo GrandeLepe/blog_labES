@@ -27,7 +27,6 @@ ul {
     flex-wrap: wrap;
 }
 
-
 li:last-child{
     margin-left: auto;
 }

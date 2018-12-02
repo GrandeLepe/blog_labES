@@ -44,7 +44,7 @@
                 out.print("<h1 class='h1Titulo'>" + post.getTitulo() + "</h1>");
                 out.print("<section>" + post.getPublicacao() + "</section>");
                 out.print("<h4>Publicado em: " + post.getData() + "</h4>");
-                out.print("<h3>Autor: " + usr.getNome() + "</h3>");
+                out.print("<h3 class='autorFont'>Autor: " + usr.getNome() + "</h3>");
 
                 if (u != null) {
                     //TODO corrigir para pegar o id do usuario que postou
@@ -63,10 +63,9 @@
                     out.print("<div class='div_comentario'><hr><p>");
                     out.print(comentario.getComentario());
                     out.print("</p><br>");
-                    out.print("Data do comentario: "+comentario.getData());
-                    out.print("<br>Autor: "+usr.getNome());
-                    out.print("<hr></div>");
-                    
+                    out.print("Data do comentario: " + comentario.getData());
+                    out.print("<br><span class='autorFont'>Autor: " + usr.getNome());
+                    out.print("</span><hr></div>");
 
                 }
                 out.print("</section>");
@@ -75,6 +74,10 @@
             }
 
         %>
+
+        <div class="footer">
+            <p>Blog de aprendizado.</p>
+        </div>
     </body>
 
 </html>

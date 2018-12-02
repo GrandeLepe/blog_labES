@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import uteis.Sanitizador;
 
 /**
  *
@@ -41,11 +42,19 @@ public class AdmComentarioAdicionar extends HttpServlet {
             Integer idPost = Integer.parseInt(req.getParameter("idPost"));
             String comentario = req.getParameter("comentario");
             
-
+            String comentarioLimpo;
+            
+            System.out.println(comentario);
+            
+            Sanitizador s = new Sanitizador();
+            comentarioLimpo = s.verificaPalavra(comentario);
+            
+            System.out.println(comentarioLimpo);
+            
             Comentario comentarioObj =  new Comentario();
             comentarioObj.setId_autor(idAutor);
             comentarioObj.setId_post(idPost);
-            comentarioObj.setComentario(comentario);
+            comentarioObj.setComentario(comentarioLimpo);
             
             ServicoComentario sComentario = new ServicoComentarioImpl();
             sComentario.inserir(comentarioObj);

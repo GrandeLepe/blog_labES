@@ -33,7 +33,6 @@ input, select {
     border: 2px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    resize: both;
     overflow: auto;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;

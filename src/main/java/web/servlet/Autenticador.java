@@ -43,7 +43,7 @@ public class Autenticador extends HttpServlet {
         Usuario uBD = sUsuario.procurarPorNome(nomeUsuario);
         System.out.println(uBD);
         ServletContext sc = req.getServletContext();
-        if (uBD != null && uBD.getSenha().equals(senha)) {
+        if (uBD != null && uBD.getSenha().equals(senha) && uBD.getNome().equals(nomeUsuario)) {
             try {
                 HttpSession sessao = req.getSession();
                 sessao.setAttribute("usuarioLogado", uBD);
@@ -56,7 +56,9 @@ public class Autenticador extends HttpServlet {
         } else {
             try {
                 req.setAttribute("falhaAutenticacao", true);
-                sc.getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
+//                sc.getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
+                resp.sendRedirect(req.getContextPath()+"/Login?erro=true");
+
             } catch (Exception e) {
                 System.out.println(e);
             }

@@ -62,7 +62,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
             PreparedStatement comandoSQLp = conexao.prepareStatement("select * from blog.postagem where id_post = ?");
             comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
-            System.out.println("Conectado postagem...(metodo procurar por id)");
+//            System.out.println("Conectado postagem...(metodo procurar por id)");
             rs.next();
             p = new Postagem();
             p.setId_post(rs.getInt(1));

@@ -65,7 +65,7 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
                             + "where c.id_comentario = ? " + "and c.id_autor = u.id " + "and c.id_post = p.id_post");
             comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
-            System.out.println("Conectado comentario...(metodo procurar por id_comentario)");
+//            System.out.println("Conectado comentario...(metodo procurar por id_comentario)");
             rs.next();
             c = new Comentario();
             c.setId_comentario(rs.getInt(1));
