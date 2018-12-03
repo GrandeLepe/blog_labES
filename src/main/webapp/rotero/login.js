@@ -12,8 +12,10 @@ function pegarVariaveisDaUrl()
     erro = msg.split('=');
     console.log(erro[1]);
     if (erro[1] === 'true') {
-        document.getElementById("erro").innerHTML = "Nome de Usuario ou/e Senha incorreto(s)";
-
+        document.getElementById("erro").innerHTML = "Nome de usuário ou senha errados. Por favor tente outra vez.";
+        document.getElementById("formErro").style.border = '4px solid red';
+        document.getElementById("formErro").style.color = 'red';
+        
     }
 }
 window.onload = function () {

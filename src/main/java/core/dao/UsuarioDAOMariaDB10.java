@@ -64,7 +64,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
             PreparedStatement comandoSQLp = conexao.prepareStatement("select * from blog.usuario where id = ?");
             comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
-            System.out.println("Conectado...(metodo procurar por id)");
+            
             rs.next();
             u = new Usuario();
             u.setId(rs.getInt(1));
@@ -93,7 +93,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
             PreparedStatement comandoSQLp = conexao.prepareStatement("select * from blog.usuario where nome = ?");
             comandoSQLp.setString(1, nomeUsuario);
             ResultSet rs = comandoSQLp.executeQuery();
-            System.out.println("Conectado...(metodo procurar por nome)");
+           
             rs.next();
             u = new Usuario();
             u.setId(rs.getInt(1));
@@ -112,6 +112,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO {
             System.out.print("\nErro de conexão... procurar por nome");
             System.out.println(ex);
         }
+        
         return u;
     }
 

@@ -53,16 +53,6 @@ public final class Sanitizador {
         String censura = "*";
         String comentarioLimpo;
         
-//        for (String palavra : palavras) {
-//            for (String palavraFeia : palavroes) {
-//                if (palavraFeia.equals(palavra.toUpperCase())) {
-//                    palavrasLimpas.add(censura);
-//                    break;
-//                }
-//            }
-//            palavrasLimpas.add(palavra);
-//
-//        }
          for (String palavra : palavras) {
 
             if (palavroes.contains(palavra.toUpperCase())) {

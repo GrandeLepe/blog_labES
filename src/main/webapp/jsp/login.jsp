@@ -15,7 +15,7 @@
         <title>Blog-Login</title>
     </head>
     <body>
-        <form class="baseForm" action="Autenticador.action" method="post">
+        <form class="baseForm" id="formErro" action="Autenticador.action" method="post">
             <p id=erro></p><br>
             <label class="formLabel">
                 Nome de Usuário:
