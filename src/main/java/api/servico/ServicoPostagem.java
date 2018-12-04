@@ -6,7 +6,6 @@
 package api.servico;
 
 import api.modelo.Postagem;
-import api.modelo.Usuario;
 import java.util.List;
 
 /**
@@ -18,6 +17,6 @@ public interface ServicoPostagem {
     public Postagem procurarPorId(Integer id);
     public List<Postagem> procurarTudo();
     public List<Postagem> procurarTudoDoAutor(Integer id);
-    public Usuario atualizar(Postagem postAnt, Postagem postAt);
+    public boolean atualizar(Integer idPost, Postagem postAt);
     public boolean excluir(Integer id);
 }

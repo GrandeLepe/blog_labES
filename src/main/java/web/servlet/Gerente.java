@@ -40,6 +40,8 @@ public class Gerente extends HttpServlet {
                 sc.getRequestDispatcher("/jsp/cadastroUsuario.jsp").forward(req, resp);
             } else if (i.equals("7")) {
                 sc.getRequestDispatcher("/jsp/admComentarios.jsp").forward(req, resp);
+            } else if (i.equals("8")) {
+                sc.getRequestDispatcher("/jsp/editaPost.jsp").forward(req, resp);
             }
 
         } catch (Exception e) {

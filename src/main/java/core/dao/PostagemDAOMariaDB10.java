@@ -129,9 +129,9 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
     }
 
     @Override
-    public Postagem atualizar(Postagem postAnt, Postagem postAt) {
-        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-        // Tools | Templates.
+    public boolean atualizar(Integer idPost, Postagem postAt) {
+        
+        return true;
     }
 
     @Override

@@ -53,7 +53,7 @@
                         <th>Título</th>
                         <th>Nome do Autor</th>
                         <th>Data de postagem</th>
-                        <!--<th>Editar</th>-->
+                        <th>Editar</th>
                         <th>Excluir</th>
                     </tr>
                     <%
@@ -68,7 +68,7 @@
                         } else {
                             sBD = sPostagem.procurarTudoDoAutor(u.getId());
                         }
-                        
+
                         for (Postagem postagem : sBD) {
                             ServicoUsuario uBD = new ServicoUsuarioImpl();
 
@@ -77,10 +77,8 @@
                             out.print("<td>" + postagem.getTitulo() + "</td>");
                             out.print("<td>" + uBD.procurarPorId(postagem.getId_autor()).getNome() + "</td>");
                             out.print("<td>" + postagem.getData() + "</td>");
-                    %>
-                    <td> <a href="AdmPost?paramExcluir=<%=postagem.getId_post().toString()%>">Excluir esse!</a>
-                    </td>
-                    <%
+                            out.print("<td> <a href='AdmPost?pExcluir=-1&pEditar="+postagem.getId_post().toString() +"'>Editar</a></td>");
+                            out.print("<td> <a href='AdmPost?pExcluir=" + postagem.getId_post().toString() + "&pEditar=-1'>Excluir</a></td>");
                             out.print("</tr>");
                         }
                     %>

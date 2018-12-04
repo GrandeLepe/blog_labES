@@ -27,7 +27,7 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 
-/bin/
+/bin
 ### text ###
 *.odt
 .~lock.requisitos.odt#

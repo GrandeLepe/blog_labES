@@ -11,6 +11,7 @@ import core.servico.ServicoPostagemImpl;
 import core.servico.ServicoUsuarioImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,19 +26,28 @@ import javax.servlet.http.HttpServletResponse;
 public class AdmPost extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Integer idExcluir = Integer.parseInt(req.getParameter("paramExcluir"));
-        //Integer idEditar = Integer.parseInt(req.getParameter("paramEditar"));
+        Integer idExcluir = Integer.parseInt(req.getParameter("pExcluir"));
+        Integer idEditar = Integer.parseInt(req.getParameter("pEditar"));
 
         try {
-            if (idExcluir != 0) {
-                
+            if (idEditar > 0) {
+
+                ServletContext sc = req.getServletContext();
+//                sc.setAttribute("idEditar", idEditar);
+                req.setAttribute("idEditar", idEditar);
+                sc.getRequestDispatcher("/jsp/editaPost.jsp").forward(req, resp);
+//                ServicoPostagem sPostagem = new ServicoPostagemImpl();
+
+            }
+            if (idExcluir > 0) {
+
                 ServicoPostagem sPostagem = new ServicoPostagemImpl();
-                System.out.println("aqui");
+
                 boolean pBD = sPostagem.excluir(idExcluir);
                 System.out.println("aquiaqui");
-                res.sendRedirect("/Blog/gerente?param=5");
+                resp.sendRedirect("/Blog/gerente?param=5");
             }
         } catch (Exception e) {
 

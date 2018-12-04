@@ -50,3 +50,13 @@ li a {
 li a:hover {
     background-color: deepskyblue;
 }
+
+#spacador{
+    margin-top: 60px;
+}
+@media only screen and (max-width: 755px) {
+    #spacador { 
+        margin-top: 120px;
+
+    }
+}

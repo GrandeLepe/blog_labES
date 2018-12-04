@@ -72,7 +72,7 @@ public class ServicoPostagemImpl implements ServicoPostagem {
     }
 
     @Override
-    public Usuario atualizar(Postagem postAnt, Postagem postAt) {
+    public boolean atualizar(Integer idPost, Postagem postAt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
