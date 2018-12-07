@@ -36,7 +36,8 @@ public class AdmPost extends HttpServlet {
 
                 ServletContext sc = req.getServletContext();
 //                sc.setAttribute("idEditar", idEditar);
-                req.setAttribute("idEditar", idEditar);
+                req.setAttribute("idPost", idEditar);
+                
                 sc.getRequestDispatcher("/jsp/editaPost.jsp").forward(req, resp);
 //                ServicoPostagem sPostagem = new ServicoPostagemImpl();
 
@@ -46,7 +47,7 @@ public class AdmPost extends HttpServlet {
                 ServicoPostagem sPostagem = new ServicoPostagemImpl();
 
                 boolean pBD = sPostagem.excluir(idExcluir);
-                System.out.println("aquiaqui");
+                
                 resp.sendRedirect("/Blog/gerente?param=5");
             }
         } catch (Exception e) {

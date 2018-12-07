@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AdmPostagemAdicionar", urlPatterns = {"/AdmPostagemAdicionar"})
 public class AdmPostagemAdicionar extends HttpServlet {
 
-@Override
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         try {
@@ -35,24 +35,49 @@ public class AdmPostagemAdicionar extends HttpServlet {
             System.out.println(e);
         }
 
-        try {
-            String titulo = req.getParameter("titulo");
-            String publicacao = req.getParameter("publicacao");
-            Integer id_autor = Integer.parseInt(req.getParameter("id_autor"));
-            
-            
-            Postagem postagem = new Postagem();
-            postagem.setTitulo(titulo);
-            postagem.setPublicacao(publicacao);
-            postagem.setId_autor(id_autor);
-                 
-            ServicoPostagem sPostagem = new ServicoPostagemImpl();
-            sPostagem.inserir(postagem);
-            res.sendRedirect("/Blog/gerente?param=5");
-        } catch (Exception e) {
-            System.out.println("erro adicionar postagem...AdmPostagemAdicionar");
-            System.out.println(e);
-        }
+        if (req.getParameter("param") != null && req.getParameter("param").equals("editar")) {
+            String i = req.getParameter("param");
+            System.out.println(i);
+            try {
+                String titulo = req.getParameter("titulo");
+                String publicacao = req.getParameter("publicacao");
+                Integer idAutor= Integer.parseInt(req.getParameter("idAutor"));
+                Integer idPost = Integer.parseInt(req.getParameter("idPost"));
+                
+                Postagem postagem = new Postagem();
+                postagem.setTitulo(titulo);
+                postagem.setPublicacao(publicacao);
+                postagem.setId_autor(idAutor);
+                
+                ServicoPostagem sPostagem = new ServicoPostagemImpl();
+                sPostagem.atualizar(idPost, postagem);
+                
+                res.sendRedirect("/Blog/gerente?param=5");
+                
+                
+            } catch (Exception e) {
+                System.out.println("erro ao auterar postagem...AdmPostagemAdicionar");
+                System.out.println(e);
+            }
+        } else {
 
+            try {
+                String titulo = req.getParameter("titulo");
+                String publicacao = req.getParameter("publicacao");
+                Integer id_autor = Integer.parseInt(req.getParameter("id_autor"));
+
+                Postagem postagem = new Postagem();
+                postagem.setTitulo(titulo);
+                postagem.setPublicacao(publicacao);
+                postagem.setId_autor(id_autor);
+
+                ServicoPostagem sPostagem = new ServicoPostagemImpl();
+                sPostagem.inserir(postagem);
+                res.sendRedirect("/Blog/gerente?param=5");
+            } catch (Exception e) {
+                System.out.println("erro adicionar postagem...AdmPostagemAdicionar");
+                System.out.println(e);
+            }
+        }
     }
 }

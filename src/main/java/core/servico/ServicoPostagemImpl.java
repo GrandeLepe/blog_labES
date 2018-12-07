@@ -73,7 +73,15 @@ public class ServicoPostagemImpl implements ServicoPostagem {
 
     @Override
     public boolean atualizar(Integer idPost, Postagem postAt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            PostagemDAO pDao = new PostagemDAOMariaDB10();
+            boolean retorno = pDao.atualizar(idPost, postAt);
+            return retorno;
+        } catch (Exception e) {
+            System.out.println("Erro para auterar postagem...ServiçoPostagemImpl");
+            System.out.println(e);
+            return false;
+        }
     }
 
     @Override

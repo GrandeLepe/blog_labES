@@ -34,16 +34,17 @@
             <article>
                 <h2>Adicionar postagem</h2>
                 <hr>
-                <form class="baseForm" action="AdmPostagemAdicionar" method="post">
+                <form class="baseForm" action="AdmPostagemAdicionar?param=editar" method="post">
                     <label class="formLabel">
                         Titulo:
                         <input name="titulo" type="text" value="<%=post.getTitulo()%>" required class="formInput formTextInput">
                     </label>
                     <label class="formLabel">
                         Texto:
-                        <textarea name="publicacao" value="<%=post.getPublicacao()%>"rows="10" cols="30"></textarea>
+                        <textarea name="publicacao" rows="10" cols="30"><%=post.getPublicacao()%></textarea>
                     </label>
-                    <input type="radio" name="id_autor" value=<%=idPost%> checked>
+                        <input  hidden type="radio" name="idPost" value=<%=idPost%> checked>
+                        <input  hidden type="radio" name="idAutor" value=<%=post.getId_autor()%> checked>
                     <input type="submit" value="Postar" class="submitButton">
                 </form>
             </article>

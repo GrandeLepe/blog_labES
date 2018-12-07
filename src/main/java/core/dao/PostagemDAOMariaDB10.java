@@ -130,8 +130,19 @@ public class PostagemDAOMariaDB10 implements PostagemDAO {
 
     @Override
     public boolean atualizar(Integer idPost, Postagem postAt) {
-        
-        return true;
+//        UPDATE `blog`.`postagem` SET `publicacao`='Quem sabe responde, quem não sabe diz: \"professor num sei\" qeu ta tudo certo.' WHERE `id_post`='31';
+
+        try {
+            PreparedStatement comandoSQLp = conexao.prepareStatement("UPDATE blog.postagem SET publicacao=?, titulo=? WHERE id_post = ?");
+            comandoSQLp.setString(1, postAt.getPublicacao());
+            comandoSQLp.setString(2, postAt.getTitulo());
+            comandoSQLp.setString(3, idPost.toString());
+            ResultSet rs = comandoSQLp.executeQuery();
+            return rs.getBoolean(0);
+
+        } catch (Exception e) {
+        }
+        return false;
     }
 
     @Override

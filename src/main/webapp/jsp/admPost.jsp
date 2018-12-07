@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="core.servico.ServicoComentarioImpl"%>
+<%@page import="api.servico.ServicoComentario"%>
 <%@page import="api.servico.ServicoUsuario"%>
 <%@page import="api.modelo.Postagem"%>
 <%@page import="java.util.List"%>
@@ -38,7 +40,7 @@
                         Texto:
                         <textarea name="publicacao" rows="10" cols="30"></textarea>
                     </label>
-                    <input type="radio" name="id_autor" value=<%=u.getId()%> checked>
+                    <input hidden type="radio" name="id_autor" value=<%=u.getId()%> checked>
                     <input type="submit" value="Postar" class="submitButton">
                 </form>
             </article>
@@ -58,6 +60,7 @@
                     </tr>
                     <%
                         ServicoPostagem sPostagem = new ServicoPostagemImpl();
+                        ServicoComentario sComentario = new ServicoComentarioImpl();
 
                         System.out.println(u.getNome());
 
@@ -77,7 +80,11 @@
                             out.print("<td>" + postagem.getTitulo() + "</td>");
                             out.print("<td>" + uBD.procurarPorId(postagem.getId_autor()).getNome() + "</td>");
                             out.print("<td>" + postagem.getData() + "</td>");
-                            out.print("<td> <a href='AdmPost?pExcluir=-1&pEditar="+postagem.getId_post().toString() +"'>Editar</a></td>");
+                            if (sComentario.procurarTudoId_post(postagem.getId_post()).isEmpty()) {
+                                out.print("<td> <a href='AdmPost?pExcluir=-1&pEditar=" + postagem.getId_post().toString() + "'>Editar</a></td>");
+                            } else {
+                                out.print("<td> <a>-</a></td>");
+                            }
                             out.print("<td> <a href='AdmPost?pExcluir=" + postagem.getId_post().toString() + "&pEditar=-1'>Excluir</a></td>");
                             out.print("</tr>");
                         }

@@ -11,10 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre-Blog</title>
     <link href ="estilos/estilo.css" rel ="stylesheet" type ="text/css">
+    <script src="./roteiro/sobre.js"></script>
 </head>
 <body>
     <%@include file="menu.jsp" %>
-    <section style="margin-top: 60px">
+    <section id="s1" style="margin-top: 60px">
         <article>
             <h1 class="h1Titulo">Sobre o Blog</h1>
             <p>
