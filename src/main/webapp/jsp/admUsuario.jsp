@@ -14,6 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico" />
         <title>Adm Usuários-Blog</title>
         <link href ="estilos/estiloAdmUsuario.css" rel ="stylesheet" type ="text/css">
     </head>
@@ -62,8 +63,7 @@
                         <!--<th>Editar</th>-->
                         <th>Excluir</th>
                     </tr>
-                    <%
-                        ServicoUsuario sUsuario = new ServicoUsuarioImpl();
+                    <%                        ServicoUsuario sUsuario = new ServicoUsuarioImpl();
                         List<Usuario> uBD = sUsuario.procurarTudo();
                         for (Usuario usuario : uBD) {
                             out.print("<tr>");
@@ -73,7 +73,7 @@
                             out.print("<td>" + usuario.getEmail() + "</td>");
                             out.print("<td>" + (usuario.getPapel() == 1 ? "Administrador" : "Comum") + "</td>");
                     %>
-                   
+
                     <td> <a href="AdmUsuario?paramExcluir=<%=usuario.getId().toString()%>">Excluir esse!</a>
                     </td>
                     <%

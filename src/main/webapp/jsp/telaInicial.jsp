@@ -23,6 +23,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tela Inicial-Blog</title>
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico" />
         <link href="estilos/estilo.css" rel="stylesheet" type="text/css">
         <script src="roteiro/telaInicial.js"></script>
         <script src="roteiro/jquery-3.3.1.min.js"></script>

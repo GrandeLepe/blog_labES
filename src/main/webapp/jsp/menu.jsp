@@ -8,6 +8,7 @@
 <%@page import="api.modelo.Usuario"%>
 <!DOCTYPE html>
 <% Usuario u = (Usuario) session.getAttribute("usuarioLogado");%>
+
 <link rel="shortcut icon" href="Blog/favicon.ico">
 <header>
     <nav class="barraNavegacao">

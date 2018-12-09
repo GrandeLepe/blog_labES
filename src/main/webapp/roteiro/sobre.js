@@ -26,6 +26,7 @@ window.onload = function ()
     console.log(document.getElementById("spanGostei").value);
 
     document.getElementsByTagName("button")[0].setAttribute("id", "botao");
+
     btn = document.getElementById("botao");
     btn.onclick = function () {
         valor = inc();
