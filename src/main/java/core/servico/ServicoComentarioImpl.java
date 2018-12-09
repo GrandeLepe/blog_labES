@@ -91,4 +91,16 @@ public class ServicoComentarioImpl implements ServicoComentario {
 
     }
 
+    @Override
+    public List<Comentario> procurarTudoIdAutor(Integer id) {
+        try {
+            ComentarioDAO cDAO = new ComentarioDAOMariaDB10();
+            List<Comentario> c = cDAO.procurarTudoIdAutor(id);
+            return c;
+        } catch (Exception e) {
+            System.out.println("erro procurarTudoId_post comentario...ServicoComentarioImpl \n" + e);
+        }
+        return null;
+    }
+
 }

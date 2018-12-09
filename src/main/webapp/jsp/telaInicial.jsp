@@ -24,6 +24,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tela Inicial-Blog</title>
         <link href="estilos/estilo.css" rel="stylesheet" type="text/css">
+        <script src="roteiro/telaInicial.js"></script>
+        <script src="roteiro/jquery-3.3.1.min.js"></script>
+            
     </head>
 
     <body>
@@ -38,13 +41,14 @@
             Usuario usr;
             for (Postagem post : pBD) {
                 usr = sUsuario.procurarPorId(post.getId_autor());
+                int id = pBD.indexOf(post);
                 List<Comentario> cBD = sComentario.procurarTudoId_post(post.getId_post());
                 out.print("<section>");
-                out.print("<article>");
-                out.print("<h1 class='h1Titulo'>" + post.getTitulo() + "</h1>");
+                out.print("<article onmouseover='mouseDentro("+id+")' onmouseout='mouseFora("+id+")' id='"+id+"'class='postagemClass'>");
+                out.print("<h1 class='h1Titulo' onclick='trocaFonte(this)' class='alteraFonte'>" + post.getTitulo() + "</h1>");
                 out.print("<section>" + post.getPublicacao() + "</section>");
                 out.print("<h4>Publicado em: " + post.getData() + "</h4>");
-                out.print("<h3 class='autorFont'>Autor: " + usr.getNome() + "</h3>");
+                out.print("<h3 class='autorFont'>Autor: " + usr.getNomeUsuario()+ "</h3>");
 
                 if (u != null) {
                     //TODO corrigir para pegar o id do usuario que postou
@@ -64,7 +68,7 @@
                     out.print(comentario.getComentario());
                     out.print("</p><br>");
                     out.print("Data do comentario: " + comentario.getData());
-                    out.print("<br><span class='autorFont'>Autor: " + usr.getNome());
+                    out.print("<br><span class='autorFont'>Autor: " + usr.getNomeUsuario());
                     out.print("</span><hr></div>");
 
                 }
@@ -79,5 +83,5 @@
             <p>Blog de aprendizado.</p>
         </div>
     </body>
-
+    
 </html>

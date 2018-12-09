@@ -17,6 +17,7 @@ public interface ServicoComentario {
     public Comentario procurarPorId(Integer id);
     public List<Comentario> procurarTudo();
     public List<Comentario> procurarTudoId_post(Integer id);
+    public List<Comentario> procurarTudoIdAutor(Integer id);
     public Comentario atualizar(Comentario comentarioAnt, Comentario comentarioAt);
     public boolean excluir(Integer id);
 }

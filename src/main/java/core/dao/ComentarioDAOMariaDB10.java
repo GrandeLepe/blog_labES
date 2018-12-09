@@ -62,7 +62,7 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
         try {
             PreparedStatement comandoSQLp = conexao.prepareStatement(
                     "select c.*, u.nomeUsuario, p.titulo " + "from blog.comentario c,blog.usuario u, blog.postagem p "
-                            + "where c.id_comentario = ? " + "and c.id_autor = u.id " + "and c.id_post = p.id_post");
+                    + "where c.id_comentario = ? " + "and c.id_autor = u.id " + "and c.id_post = p.id_post");
             comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
 //            System.out.println("Conectado comentario...(metodo procurar por id_comentario)");
@@ -131,9 +131,30 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO {
     }
 
     @Override
+    public List<Comentario> procurarTudoIdAutor(Integer id) {
+        List<Comentario> comentarios = new ArrayList<>();
+        Comentario comentario;
+        try {
+
+            PreparedStatement comandoSQLp = conexao.prepareStatement("SELECT id_comentario FROM blog.comentario where id_autor =? ORDER BY id_post DESC");
+            comandoSQLp.setString(1, id.toString());
+            ResultSet rs = comandoSQLp.executeQuery();
+
+            while (rs.next()) {
+                comentario = procurarPorId(rs.getInt(1));
+                comentarios.add(comentario);
+            }
+            return comentarios;
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
     public Comentario atualizar(Comentario comentarioAnt, Comentario comentarioAt) {
         throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-                                                                       // Tools | Templates.
+        // Tools | Templates.
     }
 
     @Override

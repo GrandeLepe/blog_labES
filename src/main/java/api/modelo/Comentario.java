@@ -28,6 +28,14 @@ public class Comentario {
         this.data = data;
     }
 
+    public Comentario(Integer idComentario, Integer idPost, String comentario, Integer idAutor, String data) {
+        this.idComentario = idComentario;
+        this.idPost = idPost;
+        this.comentario = comentario;
+        this.idAutor = idAutor;
+        this.data = data;
+    }
+
     public Comentario() {
     }
 

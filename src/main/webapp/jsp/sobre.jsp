@@ -12,15 +12,23 @@
     <title>Sobre-Blog</title>
     <link href ="estilos/estilo.css" rel ="stylesheet" type ="text/css">
     <script src="./roteiro/sobre.js"></script>
+    <script src="roteiro/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <%@include file="menu.jsp" %>
     <section id="s1" style="margin-top: 60px">
         <article>
-            <h1 class="h1Titulo">Sobre o Blog</h1>
+            <h1 class="h1Titulo" id=1 onmouseover="trocaCor()">Sobre o Blog</h1>
             <p>
                 Blog para aplicar e demostrar os conhecimentos adquiridos nas diciplinas de Engenharia de Software; 
             </p>
         </article>
+        <article id='art02' onload="avaliacao()" >
+            <div>Se você gostou do blog click em gostei!</div>
+            <div>Gostei: <span id='spanGostei'></span></div>
+               
+            
+        </article>
     </section>
+    
 </body>    

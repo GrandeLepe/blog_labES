@@ -35,10 +35,10 @@ article{
 }
 
 .h1Titulo{
-    /*font-family: 'Libre Barcode 128 Text', cursive;*/
-    /*font-family: 'MyWebFont',cursive;*/
-    /*font-family: 'Maven Pro', sans-serif;*/
-    font-family: 'Comfortaa', cursive;
+    /*font-family: 'Libre Barcode 128 Text';*/
+/*    font-family: 'MyWebFont';*/
+    /*font-family: 'Maven Pro';*/
+    font-family: 'Comfortaa';
 
     font-weight: normal;
     font-size: 190%;
@@ -129,6 +129,9 @@ textarea :focus {
     display: block;
 }
 
+.postagemClass{
+    border: none;
+}
 @media only screen and (max-width: 600px) {
     section { 
         display: block;

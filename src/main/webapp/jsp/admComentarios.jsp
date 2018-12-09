@@ -35,7 +35,13 @@
                     </tr>
                     <%
                         ServicoComentario sComentario = new ServicoComentarioImpl();
-                        List<Comentario> sBD = sComentario.procurarTudo();
+                        List<Comentario> sBD;
+                        
+                        if (u.getPapel() == 1) {
+                            sBD = sComentario.procurarTudo();
+                        } else {
+                            sBD = sComentario.procurarTudoIdAutor(u.getId());
+                        }
                         for (Comentario comentario : sBD) {
 
                             out.print("<tr>");

@@ -22,7 +22,7 @@
                 <form class="baseForm" action="AdmUsusarioAdicionar?param=autocadastro" method="post">
                     <label class="formLabel">
                         Nome de Usuário(Apelido):
-                        <input name="nome" type="text" required class="formInput formTextInput">
+                        <input name="nome" type="text" placeholder="Nome usado para acessar" required class="formInput formTextInput">
                     </label>
                     <label class="formLabel">
                         Senha:
@@ -37,8 +37,8 @@
                         <input name="email" type="email" required class="formInput formTextInput">
                     </label>
                     <label class="formLabel">
-                        Tipo de usuário:<br>
-                        <input type="radio" name="papel" checked value="0"> Usuário comum<br>
+                        
+                        <input hidden type="radio" name="papel" checked value="0"><br>
                     </label>
 
                     <input type="submit" value="Adicionar" class="submitButton">                
