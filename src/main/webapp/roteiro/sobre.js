@@ -17,17 +17,17 @@ window.onload = function ()
 {   
     
     var bntInsert = document.createElement("button");
-    var em = document.createTextNode("Gostei");
-    bntInsert.appendChild(em);
+//    var em = document.createTextNode("Gostei");
+//    bntInsert.appendChild(em);
     var element = document.getElementById("art02");
     element.appendChild(bntInsert);
 
     document.getElementById("spanGostei").innerHTML = gostei;
-    console.log(document.getElementById("spanGostei").value);
+    
 
     document.getElementsByTagName("button")[0].setAttribute("id", "botao");
-
     btn = document.getElementById("botao");
+    btn.innerHTML = "<i class='material-icons'>thumb_up</i>"
     btn.onclick = function () {
         valor = inc();
         document.getElementById('spanGostei').textContent = valor.toString();

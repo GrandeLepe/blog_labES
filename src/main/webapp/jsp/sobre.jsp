@@ -14,6 +14,7 @@
     <link href ="estilos/estilo.css" rel ="stylesheet" type ="text/css">
     <script src="./roteiro/sobre.js"></script>
     <script src="roteiro/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <%@include file="menu.jsp" %>
